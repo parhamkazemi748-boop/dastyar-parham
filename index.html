@@ -47,35 +47,35 @@ button,input,select,textarea{font:inherit}input,select,textarea{color:var(--inpu
 
 @keyframes artPulse{0%{box-shadow:0 0 0 0 rgba(79,70,229,.5)}70%{box-shadow:0 0 0 16px rgba(79,70,229,0)}100%{box-shadow:0 0 0 0 rgba(79,70,229,0)}}
 
-/* فاصله‌گذاری استاندارد فیلدها و متن‌های ریز زیرین */
+/* فاصله‌گذاری بیشتر و استاندارد متن‌های ریز زیرین در همه بخش‌ها */
 .list{display:flex;flex-direction:column;gap:14px}
 .item{border:1px solid var(--line);border-radius:13px;padding:14px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:6px}
 .item:first-child{margin-top:2px}
 .item-main{min-width:0}
 .item-title{font-weight:700}
-.item-meta{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.7}
+.item-meta{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.8}
 
 .badge{padding:5px 9px;border-radius:999px;font-size:11px;white-space:nowrap}.green{background:#dcfce7;color:#166534}.yellow{background:#fef3c7;color:#92400e}.red{background:#fee2e2;color:#991b1b}.blue{background:#dbeafe;color:#1e40af}.gray{background:#f1f5f9;color:#475569}
 .progress{height:8px;background:#edf1f7;border-radius:99px;overflow:hidden;margin-top:10px}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--primary),var(--primary2))}
 table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1px solid var(--line);text-align:right;font-size:13px}th{color:var(--muted)}
 
-/* تقویم فوق‌العاده شیک، ارتقایافته، منظم و بدون بیرون‌زدگی در کامپیوتر */
+/* تقویم کاملاً حرفه‌ای، شیک، باارتفاع مناسب و خوانا در کامپیوتر و تبلت */
 .calendar-card{border-radius:24px;border:1px solid var(--line);background:var(--card);padding:24px;box-shadow:var(--shadow);width:100%;overflow:hidden}
 .calendar-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding:0 4px}
 .calendar-head h2{font-size:20px;margin:0;font-weight:800;color:var(--text)}
 .calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;width:100%}
 .dow{text-align:center;font-weight:700;font-size:13px;color:var(--muted);padding:10px 0;background:var(--bg);border-radius:12px;border:1px solid var(--line)}
-.day{background:var(--card);border:1px solid var(--line);min-height:115px;max-height:135px;border-radius:14px;padding:10px;cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow:hidden;position:relative}
+.day{background:var(--card);border:1px solid var(--line);min-height:135px;max-height:155px;border-radius:14px;padding:10px;cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow:hidden;position:relative}
 .day:hover{transform:translateY(-4px);border-color:var(--primary);box-shadow:0 10px 25px rgba(79,70,229,.12);z-index:2}
 .dow{min-height:auto}
 .day.today{border:2px solid var(--primary);background:linear-gradient(135deg,rgba(79,70,229,.04),rgba(124,58,237,.08))}
 .day.muted{opacity:.3;cursor:default;pointer-events:none}
 .day strong{font-size:13px;display:inline-flex;width:26px;height:26px;align-items:center;justify-content:center;border-radius:50%;background:var(--bg);color:var(--text);margin-bottom:6px;font-weight:700;flex-shrink:0}
 .day.today strong{background:var(--primary);color:#fff}
-.day-events{display:flex;flex-direction:column;gap:4px;overflow-y:auto;flex:1;padding-right:2px;scrollbar-width:none}
-.day-events::-webkit-scrollbar{width:3px}
+.day-events{display:flex;flex-direction:column;gap:5px;overflow-y:auto;flex:1;padding-right:2px;scrollbar-width:thin}
+.day-events::-webkit-scrollbar{width:4px}
 .day-events::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
-.event{display:block;border-radius:6px;padding:4px 6px;font-size:10px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:.2s}
+.event{display:block;border-radius:6px;padding:5px 8px;font-size:11px;font-weight:600;white-space:normal;overflow:hidden;line-height:1.5;transition:.2s}
 .event:hover{filter:brightness(.95)}
 .event.task{background:#eef2ff;color:#3730a3;border-right:3px solid var(--primary)}
 .event.doc{background:#fef3c7;color:#92400e;border-right:3px solid var(--yellow)}
@@ -111,7 +111,7 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
   
   .calendar-card{padding:12px!important}
   .calendar{gap:4px!important}
-  .day{min-height:75px!important;max-height:95px!important;padding:6px!important;border-radius:10px!important}
+  .day{min-height:95px!important;max-height:115px!important;padding:6px!important;border-radius:10px!important}
   .dow{padding:6px 0!important;font-size:11px!important}
 }
 
@@ -738,7 +738,7 @@ function taskSummaryItem(x){
           <span class="priority-dot ${esc(pr)}" title="اولویت: ${esc(pr)}"></span>
           <b style="font-size:13px">${esc(x.title)}</b>
         </div>
-        <span style="font-size:12px;color:var(--muted);margin-right:16px;margin-top:6px;display:block;line-height:1.7">${fmtDate(x.date, x.dateTo)} ${x.time||''} · ${esc(x.type||'سایر')}</span>
+        <span style="font-size:12px;color:var(--muted);margin-right:16px;margin-top:10px;display:block;line-height:1.8">${fmtDate(x.date, x.dateTo)} ${x.time||''} · ${esc(x.type||'سایر')}</span>
       </div>
       <div style="display:flex;gap:6px">
         <button class="btn secondary small" onclick="openTask(${x.id})">ویرایش</button>
@@ -947,7 +947,7 @@ function docSummaryItem(x){
           <input type="checkbox" ${x.checked||x.status==='ready'?'checked':''} onchange="toggleDoc(${x.id},this.checked)" onclick="event.stopPropagation()">
           <b style="font-size:13px">${esc(x.name)}</b>
         </div>
-        <span style="font-size:12px;color:var(--muted);margin-right:24px;margin-top:6px;display:block;line-height:1.7">${esc(x.category||'سایر')} · ${fmtDate(x.date)} ${x.note?'· '+esc(x.note):''}</span>
+        <span style="font-size:12px;color:var(--muted);margin-right:24px;margin-top:10px;display:block;line-height:1.8">${esc(x.category||'سایر')} · ${fmtDate(x.date)} ${x.note?'· '+esc(x.note):''}</span>
       </div>
       <div style="display:flex;align-items:center;gap:6px">
         ${filePreviewHTML}
@@ -1028,7 +1028,7 @@ function deleteExpense(id){
     toast('هزینه حذف شد');
   }
 }
-let expenseRates={};let expenseRatesBase='';async function loadExpenseRates(base){try{const r=await fetch('https://open.er-api.com/v6/latest/'+encodeURIComponent(base));const j=await r.json();if(j.result==='success'){expenseRates=j.rates||{};expenseRatesBase=base;return true}}catch(e){}return false}function expenseBaseCode(c){return c==='یورو'?'EUR':c==='دلار'?'USD':c==='درام'?'AMD':'IRR'}async function updateExpenseConversion(){const amountEl=$('eAmount'),currencyEl=$('eCurrency');if(!amountEl||!currencyEl)return;const raw=Number(String(amountEl.value||'').replace(/,/g,''))||0;const cur=currencyEl.value;const status=$('expenseRateStatus'),usd=$('expenseUsd'),amd=$('expenseAmd');if(!raw){if(usd)usd.textContent='—';if(amd)amd.textContent='—';if(status)status.textContent='مبلغ را وارد کنید';return}const base=expenseBaseCode(cur);if(base==='IRR'){if(usd)usd.textContent='—';if(amd)usd.textContent='—';if(status)status.textContent='برای تومان نرخ آنلاین قابل اتکا نیست';return}if(expenseRatesBase!==base){if(status)status.textContent='در حال دریافت نرخ...';await loadExpenseRates(base)}if(!expenseRates || !expenseRates.USD || !expenseRates.AMD){if(status)status.textContent='نرخ ارز در دسترس نیست';if(usd)usd.textContent='—';if(amd)amd.textContent='—';return}if(usd)usd.textContent=(raw*Number(expenseRates.USD)).toLocaleString('fa-IR',{maximumFractionDigits:2})+' $';if(amd)amd.textContent=(raw*Number(expenseRates.AMD)).toLocaleString('fa-IR',{maximumFractionDigits:2})+' ֏';if(status)status.textContent='نرخ آنلاین به‌روز شد'}
+let expenseRates={};let expenseRatesBase='';async function loadExpenseRates(base){try{const r=await fetch('https://open.er-api.com/v6/latest/'+encodeURIComponent(base));const j=await r.json();if(j.result==='success'){expenseRates=j.rates||{};expenseRatesBase=base;return true}}catch(e){}return false}function expenseBaseCode(c){return c==='یورو'?'EUR':c==='دلار'?'USD':c==='درام'?'AMD':'IRR'}async function updateExpenseConversion(){const amountEl=$('eAmount'),currencyEl=$('eCurrency');if(!amountEl||!currencyEl)return;const raw=Number(String(amountEl.value||'').replace(/,/g,''))||0;const cur=currencyEl.value;const status=$('expenseRateStatus'),usd=$('expenseUsd'),amd=$('expenseAmd');if(!raw){if(usd)usd.textContent='—';if(amd)amd.textContent='—';if(status)status.textContent='مبلغ را وارد کنید';return}const base=expenseBaseCode(cur);if(base==='IRR'){if(usd)usd.textContent='—';if(amd)amd.textContent='—';if(status)status.textContent='برای تومان نرخ آنلاین قابل اتکا نیست';return}if(expenseRatesBase!==base){if(status)status.textContent='در حال دریافت نرخ...';await loadExpenseRates(base)}if(!expenseRates || !expenseRates.USD || !expenseRates.AMD){if(status)status.textContent='نرخ ارز در دسترس نیست';if(usd)usd.textContent='—';if(amd)usd.textContent='—';return}if(usd)usd.textContent=(raw*Number(expenseRates.USD)).toLocaleString('fa-IR',{maximumFractionDigits:2})+' $';if(amd)amd.textContent=(raw*Number(expenseRates.AMD)).toLocaleString('fa-IR',{maximumFractionDigits:2})+' ֏';if(status)status.textContent='نرخ آنلاین به‌روز شد'}
 
 function getConvertedExpenseString(amount, currency){
   const base = expenseBaseCode(currency);
@@ -1052,7 +1052,7 @@ function expenseSummaryItem(x){
     <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%">
       <div>
         <b style="display:block;font-size:13px">${esc(name)}</b>
-        <span style="font-size:12px;color:var(--muted);margin-top:6px;display:block;line-height:1.7">${cat} · ${amount.toLocaleString('fa-IR')} ${currency}${convertedStr}</span>
+        <span style="font-size:12px;color:var(--muted);margin-top:10px;display:block;line-height:1.8">${cat} · ${amount.toLocaleString('fa-IR')} ${currency}${convertedStr}</span>
       </div>
       <div style="display:flex;gap:6px">
         <button class="btn secondary small" onclick="openExpense(${x.id})">ویرایش</button>
@@ -1149,7 +1149,7 @@ function toggleDoc(id,checked){
 }
 function openDocCategoryManager(){openModal(`<div class="modal-head"><h2>افزودن دسته مدارک</h2><button class="close" onclick="closeModal()">✕</button></div><div class="form"><div class="field full"><label>نام دسته جدید</label><input id="newDocCat" placeholder="مثلاً مدارک بیمه"></div></div><div class="modal-actions"><button class="btn" onclick="addDocCategory()">افزودن</button></div>`)}
 function addDocCategory(){const v=$('newDocCat').value.trim();if(!v)return toast('نام دسته را وارد کنید');const sel=$('docCategoryFilter');const exists=[...sel.options].some(o=>o.value===v);if(!exists){sel.add(new Option(v,v));document.querySelector('#docsMenu').insertAdjacentHTML('beforeend',`<button onclick="openDocsCategory('${esc(v)}')">▸ ${esc(v)}</button>`)}closeModal();toast('دسته اضافه شد')}
-function setThemeMode(mode){document.body.classList.toggle('dark',mode==='dark');localStorage.setItem('assistant_theme_mode',mode);if($('themeMode'))$('themeMode').value=mode;document.querySelectorAll('.theme-mode-card').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));toast(mode==='dark'?'حالت دارک فعال شد':'حالت روشن فعال شد')}
+function setThemeMode(mode){document.body.classList.toggle('dark',mode==='dark');localStorage.setItem('assistant_theme_mode',mode);if($('themeMode'))$('themeMode').value=mode;document.querySelectorAll('.theme-mode-card').forEach(b=>b.classList.toggle('active',b.dataset.mode==mode));toast(mode==='dark'?'حالت دارک فعال شد':'حالت روشن فعال شد')}
 function setFontColor(c){document.documentElement.style.setProperty('--font',c);localStorage.setItem('assistant_font_color',c)}
 function setBgColor(c){document.documentElement.style.setProperty('--bg',c);document.body.style.backgroundImage='';localStorage.setItem('assistant_bg_color',c);localStorage.removeItem('assistant_bg_image');applyBgPhoto()}
 function setBgPreset(c){if(c)setBgColor(c)}
