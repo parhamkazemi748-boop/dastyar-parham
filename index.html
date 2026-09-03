@@ -85,9 +85,9 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
 .empty{text-align:center;color:var(--muted);padding:30px}.search{width:250px;border:1px solid var(--line);padding:10px 12px;border-radius:10px}
 .toast{position:fixed;bottom:22px;left:22px;background:#111827;color:#fff;padding:12px 17px;border-radius:10px;display:none;z-index:30}
 
-/* استایل کیبورد مجازی (چپ‌چین شده و شروع عدد ۱ از سمت چپ) */
-.v-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;user-select:none;direction:ltr}
-.v-key{background:var(--bg);border:1px solid var(--line);padding:12px;border-radius:12px;font-size:18px;font-weight:bold;text-align:center;cursor:pointer;transition:.2s;color:var(--text)}
+/* کیبورد قفل داخلی کاملاً چپ‌چین و استاندارد (شروع عدد ۱ از سمت چپ) */
+.v-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;user-select:none;direction:ltr!important;unicode-bidi:isolate}
+.v-key{background:var(--bg);border:1px solid var(--line);padding:12px;border-radius:12px;font-size:18px;font-weight:bold;text-align:center;cursor:pointer;transition:.2s;color:var(--text);direction:ltr!important}
 .v-key:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
 
 /* فیکس قطعی و مدرن موبایل */
@@ -578,9 +578,9 @@ function ensureInternalLockUI(){
     <p style="margin:0 0 16px;text-align:center;opacity:.7;font-size:13px">رمز ورود خود را با کیبورد زیر یا کیبورد رایانه وارد کنید.</p>
     
     <div style="display:grid;gap:12px">
-      <input id="internalUnlockPassword" type="password" readonly placeholder="رمز عبور" style="padding:14px;border-radius:14px;border:1px solid #ccd3df;font-size:18px;text-align:center;letter-spacing:4px;background:var(--input);color:var(--text)">
+      <input id="internalUnlockPassword" type="password" readonly placeholder="رمز عبور" style="padding:14px;border-radius:14px;border:1px solid #ccd3df;font-size:18px;text-align:center;letter-spacing:4px;background:var(--input);color:var(--text);direction:ltr">
       
-      <div class="v-keypad">
+      <div class="v-keypad" style="direction:ltr!important">
         <div class="v-key" onclick="pressKey('1')">۱</div>
         <div class="v-key" onclick="pressKey('2')">۲</div>
         <div class="v-key" onclick="pressKey('3')">۳</div>
