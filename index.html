@@ -41,7 +41,6 @@ button,input,select,textarea{font:inherit}input,select,textarea{color:var(--inpu
 .art-step.active .art-node{border-color:var(--primary);background:#eef2ff;color:var(--primary);animation:artPulse 2s infinite}
 .art-step.planned .art-node{border-color:#cbd5e1;color:var(--muted)}
 
-/* کارت متنی با قابلیت نمایش کامل نوشته‌های زیاد بدون بریدگی */
 .art-card{margin-top:12px;background:var(--bg);border:1px solid var(--line);padding:12px 14px;border-radius:16px;text-align:center;width:100%;box-shadow:0 4px 15px rgba(0,0,0,.03);backdrop-filter:blur(10px)}
 .art-card b{display:block;font-size:12px;color:var(--text);word-break:break-word;line-height:1.6;margin-bottom:4px}
 .art-card small{display:block;color:var(--muted);font-size:10px;line-height:1.4}
@@ -65,8 +64,8 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
 .empty{text-align:center;color:var(--muted);padding:30px}.search{width:250px;border:1px solid var(--line);padding:10px 12px;border-radius:10px}
 .toast{position:fixed;bottom:22px;left:22px;background:#111827;color:#fff;padding:12px 17px;border-radius:10px;display:none;z-index:30}
 
-/* استایل کیبورد مجازی هوشمند (برای کامپیوتر و گوشی) */
-.v-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;user-select:none}
+/* استایل کیبورد مجازی (اعداد از راست به چپ: ۱ الی ۹ و صفر) */
+.v-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;direction:rtl;user-select:none}
 .v-key{background:var(--bg);border:1px solid var(--line);padding:12px;border-radius:12px;font-size:18px;font-weight:bold;text-align:center;cursor:pointer;transition:.2s;color:var(--text)}
 .v-key:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
 
@@ -79,8 +78,10 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
   .nav button{margin:0;padding:4px;font-size:10px;text-align:center;border-radius:8px;display:flex;flex-direction:column;align-items:center;gap:1px;color:#cbd5e1}
   .nav button span{display:block!important;font-size:9px}
   .nav button.active{background:#263149;color:#fff}
-  .nav button.nav-main{display:none!important}
-  .submenu{display:none!important}
+  .nav button.nav-main{display:flex!important;flex-direction:column!important;align-items:center!important}
+  .submenu{display:none;position:absolute;bottom:70px;right:10px;background:#111827;border:1px solid #374151;border-radius:12px;box-shadow:0 -4px 20px rgba(0,0,0,.3);padding:6px;width:180px;z-index:1001}
+  .submenu.open{display:block!important}
+  .submenu button{text-align:right;padding:8px 12px;color:#cbd5e1;font-size:11px;border-radius:8px}
   
   .main{margin-right:0!important;margin-bottom:90px;width:100%!important;padding:10px}
   .cards,.form{grid-template-columns:1fr!important}
@@ -577,7 +578,6 @@ function ensureInternalLockUI(){
   document.body.appendChild(div);
   $('internalUnlockBtn').addEventListener('click',unlockInternalApp);
 
-  // پشتیبانی از کیبورد فیزیکی کامپیوتر
   document.addEventListener('keydown', e => {
     if($('internalLockOverlay').style.display === 'flex'){
       if(e.key >= '0' && e.key <= '9'){
@@ -1004,7 +1004,7 @@ function deleteExpense(id){
     toast('هزینه حذف شد');
   }
 }
-let expenseRates={};let expenseRatesBase='';async function loadExpenseRates(base){try{const r=await fetch('https://open.er-api.com/v6/latest/'+encodeURIComponent(base));const j=await r.json();if(j.result==='success'){expenseRates=j.rates||{};expenseRatesBase=base;return true}}catch(e){}return false}function expenseBaseCode(c){return c==='یورو'?'EUR':c==='دلار'?'USD':c==='درام'?'AMD':'IRR'}async function updateExpenseConversion(){const amountEl=$('eAmount'),currencyEl=$('eCurrency');if(!amountEl||!currencyEl)return;const raw=Number(String(amountEl.value||'').replace(/,/g,''))||0;const cur=currencyEl.value;const status=$('expenseRateStatus'),usd=$('expenseUsd'),amd=$('expenseAmd');if(!raw){if(usd)usd.textContent='—';if(amd)amd.textContent='—';if(status)status.textContent='مبلغ را وارد کنید';return}const base=expenseBaseCode(cur);if(base==='IRR'){if(usd)usd.textContent='—';if(amd)usd.textContent='—';if(status)status.textContent='برای تومان نرخ آنلاین قابل اتکا نیست';return}if(expenseRatesBase!==base){if(status)status.textContent='در حال دریافت نرخ...';await loadExpenseRates(base)}if(!expenseRates || !expenseRates.USD || !expenseRates.AMD){if(status)status.textContent='نرخ ارز در دسترس نیست';if(usd)usd.textContent='—';if(amd)amd.textContent='—';return}if(usd)usd.textContent=(raw*Number(expenseRates.USD)).toLocaleString('fa-IR',{maximumFractionDigits:2})+' $';if(amd)amd.textContent=(raw*Number(expenseRates.AMD)).toLocaleString('fa-IR',{maximumFractionDigits:2})+' ֏';if(status)status.textContent='نرخ آنلاین به‌روز شد'}
+let expenseRates={};let expenseRatesBase='';async function loadExpenseRates(base){try{const r=await fetch('https://open.er-api.com/v6/latest/'+encodeURIComponent(base));const j=await r.json();if(j.result==='success'){expenseRates=j.rates||{};expenseRatesBase=base;return true}}catch(e){}return false}function expenseBaseCode(c){return c==='یورو'?'EUR':c==='دلار'?'USD':c==='درام'?'AMD':'IRR'}async function updateExpenseConversion(){const amountEl=$('eAmount'),currencyEl=$('eCurrency');if(!amountEl||!currencyEl)return;const raw=Number(String(amountEl.value||'').replace(/,/g,''))||0;const cur=currencyEl.value;const status=$('expenseRateStatus'),usd=$('expenseUsd'),amd=$('expenseAmd');if(!raw){if(usd)usd.textContent='—';if(amd)amd.textContent='—';if(status)status.textContent='مبلغ را وارد کنید';return}const base=expenseBaseCode(cur);if(base==='IRR'){if(usd)usd.textContent='—';if(amd)amd.textContent='—';if(status)status.textContent='برای تومان نرخ آنلاین قابل اتکا نیست';return}if(expenseRatesBase!==base){if(status)status.textContent='در حال دریافت نرخ...';await loadExpenseRates(base)}if(!expenseRates || !expenseRates.USD || !expenseRates.AMD){if(status)status.textContent='نرخ ارز در دسترس نیست';if(usd)usd.textContent='—';if(amd)amd.textContent='—';return}if(usd)usd.textContent=(raw*Number(expenseRates.USD)).toLocaleString('fa-IR',{maximumFractionDigits:2})+' $';if(amd)amd.textContent=(raw*Number(expenseRates.AMD)).toLocaleString('fa-IR',{maximumFractionDigits:2})+' ֏';if(status)status.textContent='نرخ آنلاین به‌روز شد'}
 
 function getConvertedExpenseString(amount, currency){
   const base = expenseBaseCode(currency);
