@@ -580,20 +580,19 @@ function ensureInternalLockUI(){
     <div style="display:grid;gap:12px">
       <input id="internalUnlockPassword" type="password" readonly placeholder="رمز عبور" style="padding:14px;border-radius:14px;border:1px solid #ccd3df;font-size:18px;text-align:center;letter-spacing:4px;background:var(--input);color:var(--text)">
       
-      <!-- کیبورد عددی اصلاح‌شده (چپ‌چین با عدد ۱ در بالا سمت چپ) -->
       <div class="v-keypad">
-        <div class="v-key" onclick="pressKey('1')">1</div>
-        <div class="v-key" onclick="pressKey('2')">2</div>
-        <div class="v-key" onclick="pressKey('3')">3</div>
-        <div class="v-key" onclick="pressKey('4')">4</div>
-        <div class="v-key" onclick="pressKey('5')">5</div>
-        <div class="v-key" onclick="pressKey('6')">6</div>
-        <div class="v-key" onclick="pressKey('7')">7</div>
-        <div class="v-key" onclick="pressKey('8')">8</div>
-        <div class="v-key" onclick="pressKey('9')">9</div>
-        <div class="v-key" onclick="pressKey('C')" style="color:var(--red);background:#fee2e2;font-size:14px;display:flex;align-items:center;justify-content:center">پاک کردن</div>
-        <div class="v-key" onclick="pressKey('0')">0</div>
-        <div class="v-key" onclick="pressKey('DEL')" style="color:var(--yellow);background:#fef3c7;font-size:14px;display:flex;align-items:center;justify-content:center">⌫</div>
+        <div class="v-key" onclick="pressKey('1')">۱</div>
+        <div class="v-key" onclick="pressKey('2')">۲</div>
+        <div class="v-key" onclick="pressKey('3')">۳</div>
+        <div class="v-key" onclick="pressKey('4')">۴</div>
+        <div class="v-key" onclick="pressKey('5')">۵</div>
+        <div class="v-key" onclick="pressKey('6')">۶</div>
+        <div class="v-key" onclick="pressKey('7')">۷</div>
+        <div class="v-key" onclick="pressKey('8')">۸</div>
+        <div class="v-key" onclick="pressKey('9')">۹</div>
+        <div class="v-key" onclick="pressKey('C')" style="color:var(--red);background:#fee2e2">C</div>
+        <div class="v-key" onclick="pressKey('0')">۰</div>
+        <div class="v-key" onclick="pressKey('DEL')" style="color:var(--yellow);background:#fef3c7">⌫</div>
       </div>
 
       <button id="internalUnlockBtn" class="btn" style="width:100%;padding:13px;border-radius:14px;font-weight:700;margin-top:4px">تایید و ورود</button>
@@ -1005,7 +1004,7 @@ async function saveExpense(id){
   const x={
     id:id||Date.now(),
     title:$('eTitle').value.trim(),
-    amount:Number(String($('eAmount').value||'').replace(/,/g, ''))||0,
+    amount:Number(String($('eAmount').value||'').replace(/,/g,''))||0,
     currency:$('eCurrency').value,
     cat:$('eCat').value,
     status:$('eStatus').value,
