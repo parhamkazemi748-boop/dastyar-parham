@@ -85,7 +85,7 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
 .empty{text-align:center;color:var(--muted);padding:30px}.search{width:250px;border:1px solid var(--line);padding:10px 12px;border-radius:10px}
 .toast{position:fixed;bottom:22px;left:22px;background:#111827;color:#fff;padding:12px 17px;border-radius:10px;display:none;z-index:30}
 
-/* کیبورد قفل داخلی کاملاً چپ‌چین و استاندارد (شروع عدد ۱ از سمت چپ) */
+/* کیبورد قفل داخلی کاملاً چپ‌چین و چیده شده از چپ به راست (1 در بالا سمت چپ) */
 .v-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;user-select:none;direction:ltr!important;unicode-bidi:isolate}
 .v-key{background:var(--bg);border:1px solid var(--line);padding:12px;border-radius:12px;font-size:18px;font-weight:bold;text-align:center;cursor:pointer;transition:.2s;color:var(--text);direction:ltr!important}
 .v-key:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
@@ -581,17 +581,17 @@ function ensureInternalLockUI(){
       <input id="internalUnlockPassword" type="password" readonly placeholder="رمز عبور" style="padding:14px;border-radius:14px;border:1px solid #ccd3df;font-size:18px;text-align:center;letter-spacing:4px;background:var(--input);color:var(--text);direction:ltr">
       
       <div class="v-keypad" style="direction:ltr!important">
-        <div class="v-key" onclick="pressKey('1')">۱</div>
-        <div class="v-key" onclick="pressKey('2')">۲</div>
-        <div class="v-key" onclick="pressKey('3')">۳</div>
-        <div class="v-key" onclick="pressKey('4')">۴</div>
-        <div class="v-key" onclick="pressKey('5')">۵</div>
-        <div class="v-key" onclick="pressKey('6')">۶</div>
-        <div class="v-key" onclick="pressKey('7')">۷</div>
-        <div class="v-key" onclick="pressKey('8')">۸</div>
-        <div class="v-key" onclick="pressKey('9')">۹</div>
+        <div class="v-key" onclick="pressKey('1')">1</div>
+        <div class="v-key" onclick="pressKey('2')">2</div>
+        <div class="v-key" onclick="pressKey('3')">3</div>
+        <div class="v-key" onclick="pressKey('4')">4</div>
+        <div class="v-key" onclick="pressKey('5')">5</div>
+        <div class="v-key" onclick="pressKey('6')">6</div>
+        <div class="v-key" onclick="pressKey('7')">7</div>
+        <div class="v-key" onclick="pressKey('8')">8</div>
+        <div class="v-key" onclick="pressKey('9')">9</div>
         <div class="v-key" onclick="pressKey('C')" style="color:var(--red);background:#fee2e2">C</div>
-        <div class="v-key" onclick="pressKey('0')">۰</div>
+        <div class="v-key" onclick="pressKey('0')">0</div>
         <div class="v-key" onclick="pressKey('DEL')" style="color:var(--yellow);background:#fef3c7">⌫</div>
       </div>
 
@@ -1195,7 +1195,7 @@ function resetTheme(){
   document.body.classList.remove('dark');
   document.documentElement.style.setProperty('--font','#172033');
   document.documentElement.style.setProperty('--bg','#f4f7fb');
-  if($('themeMode'))$('themeMode').value='light';
+  if($('themeMode'))$('themeMode->value')='light';
   document.querySelectorAll('.theme-mode-card').forEach(b=>b.classList.toggle('active',b.dataset.mode==='light'));
   if($('fontColor'))$('fontColor').value='#172033';
   if($('bgColor'))$('bgColor').value='#f4f7fb';
