@@ -57,6 +57,11 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
 .empty{text-align:center;color:var(--muted);padding:30px}.search{width:250px;border:1px solid var(--line);padding:10px 12px;border-radius:10px}
 .toast{position:fixed;bottom:22px;left:22px;background:#111827;color:#fff;padding:12px 17px;border-radius:10px;display:none;z-index:30}
 
+/* استایل کیبورد مجازی سفارشی */
+.v-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.v-key{background:var(--bg);border:1px solid var(--line);padding:12px;border-radius:12px;font-size:18px;font-weight:bold;text-align:center;cursor:pointer;transition:.2s;color:var(--text)}
+.v-key:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+
 /* فیکس قطعی و مدرن موبایل و تقویم */
 @media(max-width:768px){
   .side{position:fixed;top:auto;bottom:0;right:0;left:0;width:100%!important;height:65px;flex-direction:row;padding:6px 8px;z-index:1000;border-top:1px solid var(--line);box-shadow:0 -4px 20px rgba(0,0,0,.2);background:#111827}
@@ -74,7 +79,6 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
   .top{flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:12px}
   .search{width:100%!important}
   
-  /* تنظیمات فوق‌العاده دقیق تقویم در موبایل برای جلوگیری از هرگونه باگ */
   #calendar.page .card{padding:10px!important}
   .calendar-head{margin-bottom:10px!important}
   .calendar-head h2{font-size:14px!important}
@@ -203,10 +207,6 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
     
     <div class="card">
       <div class="section-title"><h2>وضعیت مدارک</h2></div>
-      <div class="dashboard-total-box">
-        <span>📌 کل موارد:</span>
-        <b id="sTasks">0</b>
-      </div>
       <div id="docSummary"></div>
     </div>
     
@@ -533,23 +533,60 @@ async function verifyInternalPassword(password,record){
   const hash=await deriveInternalHash(password,record.salt);
   return hash===record.hash;
 }
+
 function ensureInternalLockUI(){
   if($('internalLockOverlay'))return;
   const div=document.createElement('div');div.id='internalLockOverlay';
-  div.style.cssText='position:fixed;inset:0;z-index:100000;background:rgba(10,16,30,.82);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:20px;direction:rtl';
-  div.innerHTML=`<div style="width:min(430px,100%);background:var(--card,#fff);color:var(--font,#172033);border-radius:24px;padding:28px;box-shadow:0 25px 80px rgba(0,0,0,.3)">
-    <div style="font-size:42px;text-align:center;margin-bottom:8px">🔐</div><h2 style="margin:0 0 8px;text-align:center">قفل داخلی برنامه</h2><p style="margin:0 0 20px;text-align:center;opacity:.7;line-height:1.8">برای ورود به دستیار شخصی پرهام، رمز داخلی برنامه را وارد کنید.</p>
-    <div style="display:grid;gap:12px"><input id="internalUnlockPassword" type="password" autocomplete="current-password" placeholder="رمز عبور داخلی" style="padding:13px;border-radius:12px;border:1px solid #ccd3df;font-size:15px"><button id="internalUnlockBtn" style="padding:13px;border:0;border-radius:12px;cursor:pointer;font-weight:700">ورود به برنامه</button><div id="internalUnlockMsg" style="font-size:13px;line-height:1.8;text-align:center"></div></div>
+  div.style.cssText='position:fixed;inset:0;z-index:100000;background:rgba(10,16,30,.86);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:20px;direction:rtl';
+  div.innerHTML=`<div style="width:min(400px,100%);background:var(--card,#fff);color:var(--font,#172033);border-radius:24px;padding:26px;box-shadow:0 25px 80px rgba(0,0,0,.3)">
+    <div style="font-size:36px;text-align:center;margin-bottom:6px">🔐</div>
+    <h2 style="margin:0 0 6px;text-align:center;font-size:20px">قفل داخلی برنامه</h2>
+    <p style="margin:0 0 16px;text-align:center;opacity:.7;font-size:13px">رمز ورود خود را با کیبورد زیر وارد کنید.</p>
+    
+    <div style="display:grid;gap:12px">
+      <input id="internalUnlockPassword" type="password" readonly placeholder="رمز عبور" style="padding:14px;border-radius:14px;border:1px solid #ccd3df;font-size:18px;text-align:center;letter-spacing:4px;background:var(--input);color:var(--text)">
+      
+      <div class="v-keypad">
+        <div class="v-key" onclick="pressKey('1')">۱</div>
+        <div class="v-key" onclick="pressKey('2')">۲</div>
+        <div class="v-key" onclick="pressKey('3')">۳</div>
+        <div class="v-key" onclick="pressKey('4')">۴</div>
+        <div class="v-key" onclick="pressKey('5')">۵</div>
+        <div class="v-key" onclick="pressKey('6')">۶</div>
+        <div class="v-key" onclick="pressKey('7')">۷</div>
+        <div class="v-key" onclick="pressKey('8')">۸</div>
+        <div class="v-key" onclick="pressKey('9')">۹</div>
+        <div class="v-key" onclick="pressKey('C')" style="color:var(--red);background:#fee2e2">C</div>
+        <div class="v-key" onclick="pressKey('0')">۰</div>
+        <div class="v-key" onclick="pressKey('DEL')" style="color:var(--yellow);background:#fef3c7">⌫</div>
+      </div>
+
+      <button id="internalUnlockBtn" class="btn" style="width:100%;padding:13px;border-radius:14px;font-weight:700;margin-top:4px">تایید و ورود</button>
+      <div id="internalUnlockMsg" style="font-size:13px;line-height:1.6;text-align:center"></div>
+    </div>
   </div>`;
   document.body.appendChild(div);
   $('internalUnlockBtn').addEventListener('click',unlockInternalApp);
-  $('internalUnlockPassword').addEventListener('keydown',e=>{if(e.key==='Enter')unlockInternalApp()});
 }
-function showInternalLock(){ensureInternalLockUI();$('internalLockOverlay').style.display='flex';setTimeout(()=>$('internalUnlockPassword')?.focus(),50)}
+
+function pressKey(val){
+  const input=$('internalUnlockPassword');
+  if(!input)return;
+  if(val==='C'){
+    input.value='';
+  }else if(val==='DEL'){
+    input.value=input.value.slice(0,-1);
+  }else{
+    input.value+=val;
+  }
+}
+
+function showInternalLock(){ensureInternalLockUI();$('internalLockOverlay').style.display='flex';}
 function hideInternalLock(){const x=$('internalLockOverlay');if(x)x.style.display='none'}
+
 async function unlockInternalApp(){
   const input=$('internalUnlockPassword'); const msg=$('internalUnlockMsg'); const btn=$('internalUnlockBtn'); const password=input?.value||'';
-  if(!password){if(msg)msg.textContent='رمز داخلی را وارد کنید.';return}
+  if(!password){if(msg)msg.textContent='لطفاً رمز عبور را وارد کنید.';return}
   if(btn)btn.disabled=true;if(msg)msg.textContent='در حال بررسی...';
   try{
     if(!data._security?.hash)throw new Error('رمز داخلی تنظیم نشده است.');
@@ -557,19 +594,29 @@ async function unlockInternalApp(){
     hideInternalLock(); if(input)input.value=''; if(msg)msg.textContent=''; toast('ورود موفق بود');
   }catch(e){if(msg){msg.textContent=e.message||'ورود ناموفق';msg.style.color='#b42318'}}finally{if(btn)btn.disabled=false}
 }
+
 async function setupInternalPassword(){
   const first=$('setupInternalPassword1')?.value||''; const second=$('setupInternalPassword2')?.value||''; const msg=$('setupInternalMsg'); const btn=$('setupInternalBtn');
   const say=(t,ok=false)=>{if(msg){msg.textContent=t;msg.style.color=ok?'#16803c':'#b42318'}};
-  if(first.length<6){say('رمز داخلی باید حداقل ۶ کاراکتر باشد.');return}
+  if(first.length<4){say('رمز داخلی باید حداقل ۴ رقم باشد.');return}
   if(first!==second){say('دو رمز یکسان نیستند.');return}
-  if(btn)btn.disabled=true; say('در حال ذخیره امن رمز داخلی در فضای ابری...');
-  try{data._security=await createInternalPasswordRecord(first);localStorage.setItem(KEY,JSON.stringify(data));await cloudSaveNow();hideInternalSetup();showInternalLock();say('');toast('رمز داخلی تنظیم شد')}catch(e){say(cloudErrorText(e)||'ذخیره رمز داخلی ناموفق بود.')}finally{if(btn)btn.disabled=false}
+  if(btn)btn.disabled=true; say('در حال ذخیره رمز داخلی...');
+  try{data._security=await createInternalPasswordRecord(first);localStorage.setItem(KEY,JSON.stringify(data));await cloudSaveNow();hideInternalSetup();showInternalLock();say('');toast('رمز داخلی تنظیم شد')}catch(e){say(cloudErrorText(e)||'ذخیره رمز ناموفق بود.')}finally{if(btn)btn.disabled=false}
 }
+
 function ensureInternalSetupUI(){
   if($('internalSetupOverlay'))return; const div=document.createElement('div');div.id='internalSetupOverlay';
   div.style.cssText='position:fixed;inset:0;z-index:100001;background:rgba(10,16,30,.84);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:20px;direction:rtl';
-  div.innerHTML=`<div style="width:min(430px,100%);background:var(--card,#fff);color:var(--font,#172033);border-radius:24px;padding:28px;box-shadow:0 25px 80px rgba(0,0,0,.3)">
-  <div style="font-size:42px;text-align:center;margin-bottom:8px">🔑</div><h2 style="margin:0 0 8px;text-align:center">ساخت رمز داخلی برنامه</h2><p style="margin:0 0 20px;text-align:center;opacity:.7;line-height:1.8">این رمز با رمز Supabase فرق دارد. یک رمز حداقل ۶ کاراکتری برای قفل خود برنامه بسازید.</p><div style="display:grid;gap:12px"><input id="setupInternalPassword1" type="password" autocomplete="new-password" placeholder="رمز داخلی جدید" style="padding:13px;border-radius:12px;border:1px solid #ccd3df;font-size:15px"><input id="setupInternalPassword2" type="password" autocomplete="new-password" placeholder="تکرار رمز داخلی" style="padding:13px;border-radius:12px;border:1px solid #ccd3df;font-size:15px"><button id="setupInternalBtn" style="padding:13px;border:0;border-radius:12px;cursor:pointer;font-weight:700">ذخیره رمز داخلی</button><div id="setupInternalMsg" style="font-size:13px;line-height:1.8;text-align:center"></div></div></div>`;
+  div.innerHTML=`<div style="width:min(400px,100%);background:var(--card,#fff);color:var(--font,#172033);border-radius:24px;padding:26px;box-shadow:0 25px 80px rgba(0,0,0,.3)">
+  <div style="font-size:36px;text-align:center;margin-bottom:6px">🔑</div>
+  <h2 style="margin:0 0 6px;text-align:center;font-size:20px">ساخت رمز داخلی برنامه</h2>
+  <p style="margin:0 0 16px;text-align:center;opacity:.7;font-size:13px">یک رمز عبور عددی برای قفل خود برنامه بسازید.</p>
+  <div style="display:grid;gap:12px">
+    <input id="setupInternalPassword1" type="password" placeholder="رمز داخلی جدید" style="padding:13px;border-radius:12px;border:1px solid #ccd3df;font-size:15px;text-align:center">
+    <input id="setupInternalPassword2" type="password" placeholder="تکرار رمز داخلی" style="padding:13px;border-radius:12px;border:1px solid #ccd3df;font-size:15px;text-align:center">
+    <button id="setupInternalBtn" class="btn" style="width:100%;padding:13px;border-radius:12px;font-weight:700">ذخیره رمز داخلی</button>
+    <div id="setupInternalMsg" style="font-size:13px;line-height:1.6;text-align:center"></div>
+  </div></div>`;
   document.body.appendChild(div);$('setupInternalBtn').addEventListener('click',setupInternalPassword);
 }
 function hideInternalSetup(){const x=$('internalSetupOverlay');if(x)x.style.display='none'}
@@ -933,7 +980,7 @@ function deleteExpense(id){
     toast('هزینه حذف شد');
   }
 }
-let expenseRates={};let expenseRatesBase='';async function loadExpenseRates(base){try{const r=await fetch('https://open.er-api.com/v6/latest/'+encodeURIComponent(base));const j=await r.json();if(j.result==='success'){expenseRates=j.rates||{};expenseRatesBase=base;return true}}catch(e){}return false}function expenseBaseCode(c){return c==='یورو'?'EUR':c==='دلار'?'USD':c==='درام'?'AMD':'IRR'}async function updateExpenseConversion(){const amountEl=$('eAmount'),currencyEl=$('eCurrency');if(!amountEl||!currencyEl)return;const raw=Number(String(amountEl.value||'').replace(/,/g,''))||0;const cur=currencyEl.value;const status=$('expenseRateStatus'),usd=$('expenseUsd'),amd=$('expenseAmd');if(!raw){if(usd)usd.textContent='—';if(amd)amd.textContent='—';if(status)status.textContent='مبلغ را وارد کنید';return}const base=expenseBaseCode(cur);if(base==='IRR'){if(usd)usd.textContent='—';if(amd)usd.textContent='—';if(status)status.textContent='برای تومان نرخ آنلاین قابل اتکا نیست';return}if(expenseRatesBase!==base){if(status)status.textContent='در حال دریافت نرخ...';await loadExpenseRates(base)}if(!expenseRates || !expenseRates.USD || !expenseRates.AMD){if(status)status.textContent='نرخ ارز در دسترس نیست';if(usd)usd.textContent='—';if(amd)amd.textContent='—';return}if(usd)usd.textContent=(raw*Number(expenseRates.USD)).toLocaleString('fa-IR',{maximumFractionDigits:2})+' $';if(amd)amd.textContent=(raw*Number(expenseRates.AMD)).toLocaleString('fa-IR',{maximumFractionDigits:2})+' ֏';if(status)status.textContent='نرخ آنلاین به‌روز شد'}
+let expenseRates={};let expenseRatesBase='';async function loadExpenseRates(base){try{const r=await fetch('https://open.er-api.com/v6/latest/'+encodeURIComponent(base));const j=await r.json();if(j.result==='success'){expenseRates=j.rates||{};expenseRatesBase=base;return true}}catch(e){}return false}function expenseBaseCode(c){return c==='یورو'?'EUR':c==='دلار'?'USD':c==='درام'?'AMD':'IRR'}async function updateExpenseConversion(){const amountEl=$('eAmount'),currencyEl=$('eCurrency');if(!amountEl||!currencyEl)return;const raw=Number(String(amountEl.value||'').replace(/,/g,''))||0;const cur=currencyEl.value;const status=$('expenseRateStatus'),usd=$('expenseUsd'),amd=$('expenseAmd');if(!raw){if(usd)usd.textContent='—';if(amd)amd.textContent='—';if(status)status.textContent='مبلغ را وارد کنید';return}const base=expenseBaseCode(cur);if(base==='IRR'){if(usd)usd.textContent='—';if(amd)amd.textContent='—';if(status)status.textContent='برای تومان نرخ آنلاین قابل اتکا نیست';return}if(expenseRatesBase!==base){if(status)status.textContent='در حال دریافت نرخ...';await loadExpenseRates(base)}if(!expenseRates || !expenseRates.USD || !expenseRates.AMD){if(status)status.textContent='نرخ ارز در دسترس نیست';if(usd)usd.textContent='—';if(amd)amd.textContent='—';return}if(usd)usd.textContent=(raw*Number(expenseRates.USD)).toLocaleString('fa-IR',{maximumFractionDigits:2})+' $';if(amd)amd.textContent=(raw*Number(expenseRates.AMD)).toLocaleString('fa-IR',{maximumFractionDigits:2})+' ֏';if(status)status.textContent='نرخ آنلاین به‌روز شد'}
 
 function getConvertedExpenseString(amount, currency){
   const base = expenseBaseCode(currency);
