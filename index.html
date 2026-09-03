@@ -57,27 +57,34 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
 .empty{text-align:center;color:var(--muted);padding:30px}.search{width:250px;border:1px solid var(--line);padding:10px 12px;border-radius:10px}
 .toast{position:fixed;bottom:22px;left:22px;background:#111827;color:#fff;padding:12px 17px;border-radius:10px;display:none;z-index:30}
 
-/* اصلاح کامل ریسپانسیو و تقویم در موبایل */
+/* فیکس قطعی و مدرن موبایل و تقویم */
 @media(max-width:768px){
   .side{position:fixed;top:auto;bottom:0;right:0;left:0;width:100%!important;height:65px;flex-direction:row;padding:6px 8px;z-index:1000;border-top:1px solid var(--line);box-shadow:0 -4px 20px rgba(0,0,0,.2);background:#111827}
   .side .logo-box{display:none}
   .cloud-accordion{display:none}
   .nav{display:flex;justify-content:space-around;width:100%;align-items:center;margin:0}
-  .nav button{margin:0;padding:6px;font-size:11px;text-align:center;border-radius:8px;display:flex;flex-direction:column;align-items:center;gap:2px;color:#cbd5e1}
-  .nav button span{display:block!important;font-size:10px}
+  .nav button{margin:0;padding:4px;font-size:10px;text-align:center;border-radius:8px;display:flex;flex-direction:column;align-items:center;gap:1px;color:#cbd5e1}
+  .nav button span{display:block!important;font-size:9px}
   .nav button.active{background:#263149;color:#fff}
   .nav button.nav-main{display:none!important}
   .submenu{display:none!important}
-  .main{margin-right:0!important;margin-bottom:80px;width:100%!important;padding:12px}
+  
+  .main{margin-right:0!important;margin-bottom:90px;width:100%!important;padding:10px}
   .cards,.form{grid-template-columns:1fr!important}
   .top{flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:12px}
   .search{width:100%!important}
   
-  /* فیکس اختصاصی تقویم برای موبایل */
-  .calendar{display:grid;grid-template-columns:repeat(7,1fr)!important;gap:3px!important;width:100%!important}
-  .day,.dow{min-height:55px!important;padding:2px!important;font-size:9px!important;overflow:hidden}
-  .day strong{font-size:10px!important;margin-bottom:2px!important}
-  .event{font-size:7px!important;padding:1px 2px!important;margin-top:2px!important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  /* تنظیمات فوق‌العاده دقیق تقویم در موبایل برای جلوگیری از هرگونه باگ */
+  #calendar.page .card{padding:10px!important}
+  .calendar-head{margin-bottom:10px!important}
+  .calendar-head h2{font-size:14px!important}
+  .calendar-head button{padding:6px 10px!important;font-size:11px!important}
+  
+  .calendar{display:grid!important;grid-template-columns:repeat(7,1fr)!important;gap:2px!important;width:100%!important}
+  .dow{padding:4px 0!important;font-size:9px!important;min-height:auto!important;border-radius:6px!important}
+  .day{min-height:50px!important;max-height:75px!important;padding:3px !important;font-size:8px!important;overflow:hidden!important;border-radius:6px!important}
+  .day strong{font-size:9px!important;margin-bottom:1px!important}
+  .event{font-size:6px!important;padding:1px 2px!important;margin-top:1px!important;border-radius:3px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
 }
 
 .dark{--bg:#0b1220;--card:#111827;--text:#f8fafc;--font:#f8fafc;--line:#273449;--muted:#94a3b8;--inputText:#000}.dark .card,.dark .day,.dark .modal-box{background:#111827;color:#f8fafc}.dark .day,.dark .dow{border-color:#273449}.dark .field input,.dark .field select,.dark .field textarea{background:#fff;color:#000}.dark .nav button{color:#cbd5e1}.dark .top h1,.dark .section-title h2{color:#f8fafc}
@@ -109,7 +116,7 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
 .priority-dot.مهم{background-color:var(--yellow)}
 .priority-dot.عادی{background-color:var(--blue)}
 
-.status-dot{display:inline-block;width:10px;width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.status-dot{display:inline-block;width:10px;height:10px;border-radius:50%;flex-shrink:0}
 .status-dot.done{background-color:var(--green)}
 .status-dot.pending{background-color:var(--yellow)}
 .status-dot.planned{background-color:var(--blue)}
@@ -902,7 +909,7 @@ async function saveExpense(id){
   const x={
     id:id||Date.now(),
     title:$('eTitle').value.trim(),
-    amount:Number(String($('eAmount').value||'').replace(/,/g, ''))||0,
+    amount:Number(String($('eAmount').value||'').replace(/,/g,''))||0,
     currency:$('eCurrency').value,
     cat:$('eCat').value,
     status:$('eStatus').value,
@@ -926,7 +933,7 @@ function deleteExpense(id){
     toast('هزینه حذف شد');
   }
 }
-let expenseRates={};let expenseRatesBase='';async function loadExpenseRates(base){try{const r=await fetch('https://open.er-api.com/v6/latest/'+encodeURIComponent(base));const j=await r.json();if(j.result==='success'){expenseRates=j.rates||{};expenseRatesBase=base;return true}}catch(e){}return false}function expenseBaseCode(c){return c==='یورو'?'EUR':c==='دلار'?'USD':c==='درام'?'AMD':'IRR'}async function updateExpenseConversion(){const amountEl=$('eAmount'),currencyEl=$('eCurrency');if(!amountEl||!currencyEl)return;const raw=Number(String(amountEl.value||'').replace(/,/g,''))||0;const cur=currencyEl.value;const status=$('expenseRateStatus'),usd=$('expenseUsd'),amd=$('expenseAmd');if(!raw){if(usd)usd.textContent='—';if(amd)amd.textContent='—';if(status)status.textContent='مبلغ را وارد کنید';return}const base=expenseBaseCode(cur);if(base==='IRR'){if(usd)usd.textContent='—';if(amd)amd.textContent='—';if(status)status.textContent='برای تومان نرخ آنلاین قابل اتکا نیست';return}if(expenseRatesBase!==base){if(status)status.textContent='در حال دریافت نرخ...';await loadExpenseRates(base)}if(!expenseRates || !expenseRates.USD || !expenseRates.AMD){if(status)status.textContent='نرخ ارز در دسترس نیست';if(usd)usd.textContent='—';if(amd)amd.textContent='—';return}if(usd)usd.textContent=(raw*Number(expenseRates.USD)).toLocaleString('fa-IR',{maximumFractionDigits:2})+' $';if(amd)amd.textContent=(raw*Number(expenseRates.AMD)).toLocaleString('fa-IR',{maximumFractionDigits:2})+' ֏';if(status)status.textContent='نرخ آنلاین به‌روز شد'}
+let expenseRates={};let expenseRatesBase='';async function loadExpenseRates(base){try{const r=await fetch('https://open.er-api.com/v6/latest/'+encodeURIComponent(base));const j=await r.json();if(j.result==='success'){expenseRates=j.rates||{};expenseRatesBase=base;return true}}catch(e){}return false}function expenseBaseCode(c){return c==='یورو'?'EUR':c==='دلار'?'USD':c==='درام'?'AMD':'IRR'}async function updateExpenseConversion(){const amountEl=$('eAmount'),currencyEl=$('eCurrency');if(!amountEl||!currencyEl)return;const raw=Number(String(amountEl.value||'').replace(/,/g,''))||0;const cur=currencyEl.value;const status=$('expenseRateStatus'),usd=$('expenseUsd'),amd=$('expenseAmd');if(!raw){if(usd)usd.textContent='—';if(amd)amd.textContent='—';if(status)status.textContent='مبلغ را وارد کنید';return}const base=expenseBaseCode(cur);if(base==='IRR'){if(usd)usd.textContent='—';if(amd)usd.textContent='—';if(status)status.textContent='برای تومان نرخ آنلاین قابل اتکا نیست';return}if(expenseRatesBase!==base){if(status)status.textContent='در حال دریافت نرخ...';await loadExpenseRates(base)}if(!expenseRates || !expenseRates.USD || !expenseRates.AMD){if(status)status.textContent='نرخ ارز در دسترس نیست';if(usd)usd.textContent='—';if(amd)amd.textContent='—';return}if(usd)usd.textContent=(raw*Number(expenseRates.USD)).toLocaleString('fa-IR',{maximumFractionDigits:2})+' $';if(amd)amd.textContent=(raw*Number(expenseRates.AMD)).toLocaleString('fa-IR',{maximumFractionDigits:2})+' ֏';if(status)status.textContent='نرخ آنلاین به‌روز شد'}
 
 function getConvertedExpenseString(amount, currency){
   const base = expenseBaseCode(currency);
@@ -1074,7 +1081,6 @@ function setLogoImage(e){
   if(!f.type.startsWith('image/')) return toast('فقط فایل تصویری برای لوگو انتخاب کنید');
   const r = new FileReader();
   r.onload = () => {
-    localStorage.getItem('assistant_logo_image', r.result);
     localStorage.setItem('assistant_logo_image', r.result);
     applyLogo();
     toast('تصویر لوگو با موفقیت ثبت شد');
