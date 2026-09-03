@@ -47,7 +47,6 @@ button,input,select,textarea{font:inherit}input,select,textarea{color:var(--inpu
 
 @keyframes artPulse{0%{box-shadow:0 0 0 0 rgba(79,70,229,.5)}70%{box-shadow:0 0 0 16px rgba(79,70,229,0)}100%{box-shadow:0 0 0 0 rgba(79,70,229,0)}}
 
-/* فاصله‌گذاری بیشتر و استاندارد متن‌های ریز زیرین در همه بخش‌ها */
 .list{display:flex;flex-direction:column;gap:14px}
 .item{border:1px solid var(--line);border-radius:13px;padding:14px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:6px}
 .item:first-child{margin-top:2px}
@@ -59,7 +58,6 @@ button,input,select,textarea{font:inherit}input,select,textarea{color:var(--inpu
 .progress{height:8px;background:#edf1f7;border-radius:99px;overflow:hidden;margin-top:10px}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--primary),var(--primary2))}
 table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1px solid var(--line);text-align:right;font-size:13px}th{color:var(--muted)}
 
-/* تقویم کاملاً حرفه‌ای، شیک، باارتفاع مناسب و خوانا در کامپیوتر و تبلت */
 .calendar-card{border-radius:24px;border:1px solid var(--line);background:var(--card);padding:24px;box-shadow:var(--shadow);width:100%;overflow:hidden}
 .calendar-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding:0 4px}
 .calendar-head h2{font-size:20px;margin:0;font-weight:800;color:var(--text)}
@@ -85,12 +83,11 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
 .empty{text-align:center;color:var(--muted);padding:30px}.search{width:250px;border:1px solid var(--line);padding:10px 12px;border-radius:10px}
 .toast{position:fixed;bottom:22px;left:22px;background:#111827;color:#fff;padding:12px 17px;border-radius:10px;display:none;z-index:30}
 
-/* کیبورد قفل داخلی کاملاً چپ‌چین و چیده شده از چپ به راست (1 در بالا سمت چپ) */
-.v-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;user-select:none;direction:ltr!important;unicode-bidi:isolate}
-.v-key{background:var(--bg);border:1px solid var(--line);padding:12px;border-radius:12px;font-size:18px;font-weight:bold;text-align:center;cursor:pointer;transition:.2s;color:var(--text);direction:ltr!important}
+/* استایل کیبورد مجازی (عدد ۱ در سمت چپ قرار می‌گیرد) */
+.v-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;user-select:none}
+.v-key{background:var(--bg);border:1px solid var(--line);padding:12px;border-radius:12px;font-size:18px;font-weight:bold;text-align:center;cursor:pointer;transition:.2s;color:var(--text)}
 .v-key:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
 
-/* فیکس قطعی و مدرن موبایل */
 @media(max-width:768px){
   .side{position:fixed;top:auto;bottom:0;right:0;left:0;width:100%!important;height:65px;flex-direction:row;padding:6px 8px;z-index:1000;border-top:1px solid var(--line);box-shadow:0 -4px 20px rgba(0,0,0,.2);background:#111827}
   .side .logo-box{display:none}
@@ -578,21 +575,22 @@ function ensureInternalLockUI(){
     <p style="margin:0 0 16px;text-align:center;opacity:.7;font-size:13px">رمز ورود خود را با کیبورد زیر یا کیبورد رایانه وارد کنید.</p>
     
     <div style="display:grid;gap:12px">
-      <input id="internalUnlockPassword" type="password" readonly placeholder="رمز عبور" style="padding:14px;border-radius:14px;border:1px solid #ccd3df;font-size:18px;text-align:center;letter-spacing:4px;background:var(--input);color:var(--text);direction:ltr">
+      <input id="internalUnlockPassword" type="password" readonly placeholder="رمز عبور" style="padding:14px;border-radius:14px;border:1px solid #ccd3df;font-size:18px;text-align:center;letter-spacing:4px;background:var(--input);color:var(--text)">
       
-      <div class="v-keypad" style="direction:ltr!important">
-        <div class="v-key" onclick="pressKey('1')">1</div>
-        <div class="v-key" onclick="pressKey('2')">2</div>
+      <!-- کیبورد عددی (عدد ۱ سمت چپ و بقیه اعداد به ترتیب) -->
+      <div class="v-keypad">
         <div class="v-key" onclick="pressKey('3')">3</div>
-        <div class="v-key" onclick="pressKey('4')">4</div>
-        <div class="v-key" onclick="pressKey('5')">5</div>
+        <div class="v-key" onclick="pressKey('2')">2</div>
+        <div class="v-key" onclick="pressKey('1')">1</div>
         <div class="v-key" onclick="pressKey('6')">6</div>
-        <div class="v-key" onclick="pressKey('7')">7</div>
-        <div class="v-key" onclick="pressKey('8')">8</div>
+        <div class="v-key" onclick="pressKey('5')">5</div>
+        <div class="v-key" onclick="pressKey('4')">4</div>
         <div class="v-key" onclick="pressKey('9')">9</div>
-        <div class="v-key" onclick="pressKey('C')" style="color:var(--red);background:#fee2e2">C</div>
+        <div class="v-key" onclick="pressKey('8')">8</div>
+        <div class="v-key" onclick="pressKey('7')">7</div>
+        <div class="v-key" onclick="pressKey('DEL')" style="color:var(--yellow);background:#fef3c7;font-size:14px;display:flex;align-items:center;justify-content:center">⌫</div>
         <div class="v-key" onclick="pressKey('0')">0</div>
-        <div class="v-key" onclick="pressKey('DEL')" style="color:var(--yellow);background:#fef3c7">⌫</div>
+        <div class="v-key" onclick="pressKey('C')" style="color:var(--red);background:#fee2e2;font-size:14px;display:flex;align-items:center;justify-content:center">پاک کردن</div>
       </div>
 
       <button id="internalUnlockBtn" class="btn" style="width:100%;padding:13px;border-radius:14px;font-weight:700;margin-top:4px">تایید و ورود</button>
@@ -1195,7 +1193,7 @@ function resetTheme(){
   document.body.classList.remove('dark');
   document.documentElement.style.setProperty('--font','#172033');
   document.documentElement.style.setProperty('--bg','#f4f7fb');
-  if($('themeMode'))$('themeMode->value')='light';
+  if($('themeMode'))$('themeMode').value='light';
   document.querySelectorAll('.theme-mode-card').forEach(b=>b.classList.toggle('active',b.dataset.mode==='light'));
   if($('fontColor'))$('fontColor').value='#172033';
   if($('bgColor'))$('bgColor').value='#f4f7fb';
@@ -1207,7 +1205,7 @@ function resetTheme(){
 }
 
 function loadTheme(){
-  const mode=localStorage.getItem('assistant_theme_mode')||'light',fc=localStorage.getItem('assistant_font_color')||'#172033',bg=localStorage.getItem('assistant_bg_color')||'#f4f7fb';
+  const mode=localStorage.getItem('assistant_theme_mode')||'light',fc=localStorage.getItem('assistant_font_color']||'#172033',bg=localStorage.getItem('assistant_bg_color')||'#f4f7fb';
   document.body.classList.toggle('dark',mode==='dark');
   document.documentElement.style.setProperty('--font',fc);
   document.documentElement.style.setProperty('--bg',bg);
