@@ -105,6 +105,64 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
 .doc-file-icon-preview{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--bg);display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;flex-shrink:0;transition:.2s;box-shadow:0 2px 5px rgba(0,0,0,0.05)}
 .doc-file-icon-preview:hover{transform:scale(1.08);border-color:var(--primary)}
 .doc-file-icon-preview img{width:100%;height:100%;object-fit:cover}
+
+/* ===== اصلاحات رابط کاربری نسخه جدید ===== */
+.calendar-card{overflow:hidden}
+.calendar{width:100%;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+.day,.dow{min-width:0;overflow:hidden}
+.day{min-height:108px;display:flex;flex-direction:column;align-items:stretch}
+.day strong{font-size:14px;line-height:1.5}
+.dow{padding:10px 5px;font-size:12px;white-space:nowrap}
+.event{white-space:normal;overflow:visible;text-overflow:clip;line-height:1.45;min-height:0;overflow-wrap:anywhere;word-break:break-word;font-size:11px}
+.roadmap-container{padding:24px 16px;overflow-x:auto;overflow-y:hidden}
+.roadmap-art{min-width:1000px;padding:80px 28px;gap:20px}
+.art-step{width:190px;min-width:190px}
+.art-card{width:190px;min-height:64px;padding:10px 12px}
+.art-card b{font-size:14px;line-height:1.55;white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;word-break:break-word}
+.art-card small{font-size:11px;line-height:1.5;white-space:normal;overflow-wrap:anywhere}
+.status-cycle-btn{min-width:34px;height:34px;padding:0 9px!important;display:inline-flex;align-items:center;justify-content:center;font-size:16px!important;border-radius:10px!important}
+.summary-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.auth-lock-overlay{animation:lockOverlayIn .45s ease both}
+.auth-entry-card{width:min(410px,100%);background:linear-gradient(180deg,var(--card,#fff),var(--bg,#f4f7fb));color:var(--font,#172033);border:1px solid rgba(255,255,255,.18);border-radius:30px;padding:28px;box-shadow:0 30px 100px rgba(0,0,0,.35);position:relative;overflow:hidden;animation:lockCardIn .55s cubic-bezier(.22,1,.36,1) both}
+.auth-entry-card:before{content:'';position:absolute;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle,rgba(79,70,229,.18),transparent 70%);top:-90px;left:-70px;pointer-events:none}
+.auth-lock-icon{width:74px;height:74px;margin:0 auto 12px;border-radius:24px;display:grid;place-items:center;font-size:35px;background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;box-shadow:0 14px 35px rgba(79,70,229,.28);animation:lockFloat 2.8s ease-in-out infinite}
+.auth-lock-title{font-size:21px;margin:0 0 7px;text-align:center}
+.auth-lock-subtitle{margin:0 0 20px;text-align:center;color:var(--muted);font-size:12px;line-height:1.9}
+.auth-keypad-wrap{direction:ltr;display:grid;gap:13px}
+.auth-keypad-display{direction:ltr;text-align:center;letter-spacing:9px;font-size:25px;font-weight:900;padding:15px 12px;border:2px solid var(--line);border-radius:16px;background:var(--card);color:var(--text);min-height:58px;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 7px 20px rgba(15,23,42,.05);transition:.2s}
+.auth-keypad-display.has-error{border-color:#ef4444;animation:lockShake .42s ease}
+.auth-keypad-display.success{border-color:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.12);animation:lockSuccess .5s ease}
+.auth-dots{display:flex;direction:ltr;justify-content:center;gap:9px;margin:-2px 0 2px}
+.auth-dot{width:9px;height:9px;border-radius:50%;background:var(--line);transition:.18s;transform:scale(.85)}
+.auth-dot.filled{background:var(--primary);transform:scale(1);box-shadow:0 0 0 4px rgba(79,70,229,.10)}
+.auth-keypad{direction:ltr;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.auth-key{height:56px;border:1px solid var(--line);border-radius:16px;background:var(--card);color:var(--text);font-size:19px;font-weight:900;box-shadow:0 5px 12px rgba(15,23,42,.07);transition:transform .12s,box-shadow .12s,background .18s,border-color .18s;position:relative;overflow:hidden}
+.auth-key:before{content:'';position:absolute;inset:0;background:radial-gradient(circle at center,rgba(79,70,229,.18) 0,transparent 55%);transform:scale(0);transition:transform .25s}
+.auth-key:hover{background:var(--bg);border-color:var(--primary);transform:translateY(-2px);box-shadow:0 9px 20px rgba(79,70,229,.12)}
+.auth-key:active{transform:scale(.94);box-shadow:0 2px 7px rgba(15,23,42,.12)}
+.auth-key:active:before{transform:scale(2)}
+.auth-key.zero{grid-column:auto}
+.auth-key.action{background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;border-color:transparent}
+.auth-key.back{background:#fff1f2;color:#be123c}
+.auth-enter-btn{width:100%;padding:13px 16px!important;border-radius:15px!important;font-weight:900;box-shadow:0 10px 24px rgba(79,70,229,.18)}
+.auth-message{font-size:12px;line-height:1.8;text-align:center;min-height:24px;font-weight:700}
+.auth-message.error{animation:lockShake .42s ease}
+.auth-entry-card.unlocked{animation:lockUnlocked .65s ease both}
+@keyframes lockOverlayIn{from{opacity:0}to{opacity:1}}
+@keyframes lockCardIn{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes lockFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes lockShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(8px)}60%{transform:translateX(-6px)}80%{transform:translateX(4px)}}
+@keyframes lockSuccess{0%{transform:scale(1)}45%{transform:scale(1.04)}100%{transform:scale(1)}}
+@keyframes lockUnlocked{0%{transform:scale(1)}45%{transform:scale(1.025)}100%{transform:scale(1);opacity:.98}}
+@media(max-width:520px){.auth-entry-card{padding:22px;border-radius:24px}.auth-key{height:52px}.auth-lock-icon{width:66px;height:66px;font-size:31px}}
+@media(max-width:700px){
+  .calendar{gap:4px}
+  .day{min-height:82px;padding:5px}
+  .dow{font-size:10px;padding:7px 2px}
+  .event{font-size:9px}
+  .roadmap-art{min-width:900px}
+  .art-step,.art-card{width:170px;min-width:170px}
+}
 </style>
 </head>
 <body>
@@ -145,7 +203,6 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
     <button onclick="showPage('expenses',this)">💰 <span>هزینه‌ها</span></button>
     <button onclick="showPage('all',this)">📋 <span>همه موارد</span></button>
     <button onclick="showPage('theme',this)">🎨 <span>تم و ظاهر</span></button>
-    <button onclick="showPage('security',this)">🔐 <span>امنیت</span></button>
   </div>
 </aside>
 
@@ -175,10 +232,10 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
     <div class="card">
       <div class="section-title"><h2>وضعیت مدارک</h2></div>
       <div class="dashboard-total-box">
-        <span>📌 کل موارد:</span>
-        <b id="sTasks">0</b>
+        <span>📄 کل مدارک:</span>
+        <b id="sDocTotal">0</b>
       </div>
-      <div id="docSummary"></div>
+      <div id="docSummary" class="list"></div>
     </div>
     
     <div class="card">
@@ -233,7 +290,7 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
   </div>
 </section>
 
-<section id="calendar" class="page"><div class="card"><div class="calendar-head"><button class="btn secondary small" onclick="changeMonth(-1)">ماه قبل</button><h2 id="monthName"></h2><button class="btn secondary small" onclick="changeMonth(1)">ماه بعد</button></div><div class="calendar" id="calendarGrid"></div></div></section>
+<section id="calendar" class="page"><div class="card calendar-card"><div class="calendar-head"><button class="btn secondary small" onclick="changeMonth(-1)">ماه قبل</button><h2 id="monthName"></h2><button class="btn secondary small" onclick="changeMonth(1)">ماه بعد</button></div><div class="calendar" id="calendarGrid"></div></div></section>
 
 <section id="docs" class="page">
  <div class="card" style="margin-bottom:16px">
@@ -321,20 +378,7 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
  <div class="card"><div class="section-title"><h2>📋 همه موارد</h2><input class="search" id="search" oninput="renderAll()" placeholder="جستجو..."></div><div id="allList" class="list"></div></div>
 </section>
 
-<section id="security" class="page">
-  <div class="section-title"><h2>🔐 امنیت حساب</h2></div>
-  <div class="card" style="max-width:560px;margin:0 auto">
-    <h2 style="margin-top:0">رمز عبور داخلی برنامه</h2>
-    <p class="muted" style="font-size:13px;line-height:1.9">این رمز کاملاً جدا از رمز Supabase است. رمز داخلی به‌صورت امنِ هش‌شده داخل فضای مشترک Supabase ذخیره می‌شود و بین دستگاه‌ها و اعضای همین فضای کاری مشترک خواهد بود.</p>
-    <form id="securityForm" class="form" style="grid-template-columns:1fr" onsubmit="changeInternalPassword(event)">
-      <div class="field"><label>رمز عبور داخلی فعلی</label><input id="oldInternalPassword" type="password" autocomplete="current-password" placeholder="رمز داخلی فعلی" required></div>
-      <div class="field"><label>رمز عبور داخلی جدید</label><input id="newInternalPassword1" type="password" autocomplete="new-password" minlength="6" placeholder="حداقل ۶ کاراکتر" required></div>
-      <div class="field"><label>تکرار رمز عبور داخلی جدید</label><input id="newInternalPassword2" type="password" autocomplete="new-password" minlength="6" placeholder="رمز جدید را دوباره وارد کنید" required></div>
-      <div id="securityMsg" style="font-size:13px;line-height:1.8"></div>
-      <button type="submit" class="btn" id="changePasswordBtn" style="width:100%">🔒 تغییر رمز داخلی</button>
-    </form>
-  </div>
-</section>
+
 
 <section id="theme" class="page">
  <div class="card">
@@ -501,92 +545,127 @@ function fmtDate(d, dTo){
 }
 function money(n,currency='تومان'){return Number(n||0).toLocaleString('fa-IR')+' '+(currency||'تومان')}
 function toast(t){const el=$('toast'); if(el){el.textContent=t;el.style.display='block';setTimeout(()=>el.style.display='none',1800)}}
-function showPage(id,btn){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));const p=$(id); if(p)p.classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');const names={dashboard:'داشبورد',register:'ثبت مورد',calendar:'تقویم',docs:'مدارک',expenses:'هزینه‌ها',all:'همه موارد',theme:'تم و ظاهر',security:'امنیت'};safeText('pageTitle', names[id])}
-async function changeInternalPassword(e){
-  if(e)e.preventDefault();
-  const oldPassword=$('oldInternalPassword')?.value||'';
-  const newPassword=$('newInternalPassword1')?.value||'';
-  const repeatPassword=$('newInternalPassword2')?.value||'';
-  const msg=$('securityMsg'); const btn=$('changePasswordBtn');
-  const say=(t,ok=false)=>{if(msg){msg.textContent=t;msg.style.color=ok?'#16803c':'#b42318'}};
-  if(!supabaseClient||!cloudUser||!cloudReady){say('ابتدا وارد فضای ابری شوید.');return}
-  if(!oldPassword||!newPassword||!repeatPassword){say('هر سه فیلد را کامل کنید.');return}
-  if(newPassword.length<6){say('رمز جدید باید حداقل ۶ کاراکتر باشد.');return}
-  if(newPassword!==repeatPassword){say('تکرار رمز جدید با رمز جدید یکسان نیست.');return}
-  if(!data._security?.hash){say('برای این برنامه هنوز رمز داخلی تنظیم نشده است. ابتدا از پنجره راه‌اندازی رمز داخلی استفاده کنید.');return}
-  if(btn)btn.disabled=true; say('در حال بررسی رمز داخلی فعلی...');
-  try{
-    const ok=await verifyInternalPassword(oldPassword,data._security);
-    if(!ok)throw new Error('رمز عبور داخلی فعلی صحیح نیست.');
-    data._security=await createInternalPasswordRecord(newPassword);
-    localStorage.setItem(KEY,JSON.stringify(data));
-    await cloudSaveNow();
-    $('oldInternalPassword').value='';$('newInternalPassword1').value='';$('newInternalPassword2').value='';
-    say('✅ رمز عبور داخلی با موفقیت تغییر کرد.',true); toast('رمز داخلی تغییر کرد');
-  }catch(err){say(err.message||'تغییر رمز داخلی ناموفق بود.')}finally{if(btn)btn.disabled=false}
-}
+function showPage(id,btn){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));const p=$(id); if(p)p.classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');const names={dashboard:'داشبورد',register:'ثبت مورد',calendar:'تقویم',docs:'مدارک',expenses:'هزینه‌ها',all:'همه موارد',theme:'تم و ظاهر'};safeText('pageTitle', names[id])}
+/* ===== قفل ورود کاربران =====
+   رمز این نسخه از فایل HTML کاربر تعیین نمی‌شود.
+   رمز فقط از فایل اصلی مالک برنامه، در بخش «امنیت»، تعیین/تغییر می‌شود.
+   فایل کاربر هنگام ورود، هش رمز ذخیره‌شده در parham_shared_data را بررسی می‌کند.
+*/
 
 function bytesToB64(bytes){let binary='';bytes.forEach(b=>binary+=String.fromCharCode(b));return btoa(binary)}
 function b64ToBytes(b64){const binary=atob(b64);const out=new Uint8Array(binary.length);for(let i=0;i<binary.length;i++)out[i]=binary.charCodeAt(i);return out}
-async function deriveInternalHash(password,saltB64){
-  const enc=new TextEncoder(); const key=await crypto.subtle.importKey('raw',enc.encode(password),'PBKDF2',false,['deriveBits']);
-  const bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:b64ToBytes(saltB64),iterations:150000,hash:'SHA-256'},key,256);
+async function deriveInternalHash(password,saltB64,iterations=150000){
+  const enc=new TextEncoder();
+  const key=await crypto.subtle.importKey('raw',enc.encode(password),'PBKDF2',false,['deriveBits']);
+  const bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:b64ToBytes(saltB64),iterations:Number(iterations)||150000,hash:'SHA-256'},key,256);
   return bytesToB64(new Uint8Array(bits));
-}
-async function createInternalPasswordRecord(password){
-  const salt=new Uint8Array(16); crypto.getRandomValues(salt); const saltB64=bytesToB64(salt);
-  return {version:1,algorithm:'PBKDF2-SHA256',iterations:150000,salt:saltB64,hash:await deriveInternalHash(password,saltB64),updated_at:new Date().toISOString()};
 }
 async function verifyInternalPassword(password,record){
   if(!record?.hash||!record?.salt)return false;
-  const hash=await deriveInternalHash(password,record.salt);
+  const hash=await deriveInternalHash(password,record.salt,record.iterations);
   return hash===record.hash;
 }
+
 function ensureInternalLockUI(){
   if($('internalLockOverlay'))return;
-  const div=document.createElement('div');div.id='internalLockOverlay';
-  div.style.cssText='position:fixed;inset:0;z-index:100000;background:rgba(10,16,30,.82);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:20px;direction:rtl';
-  div.innerHTML=`<div style="width:min(430px,100%);background:var(--card,#fff);color:var(--font,#172033);border-radius:24px;padding:28px;box-shadow:0 25px 80px rgba(0,0,0,.3)">
-    <div style="font-size:42px;text-align:center;margin-bottom:8px">🔐</div><h2 style="margin:0 0 8px;text-align:center">قفل داخلی برنامه</h2><p style="margin:0 0 20px;text-align:center;opacity:.7;line-height:1.8">برای ورود به دستیار شخصی پرهام، رمز داخلی برنامه را وارد کنید.</p>
-    <div style="display:grid;gap:12px"><input id="internalUnlockPassword" type="password" autocomplete="current-password" placeholder="رمز عبور داخلی" style="padding:13px;border-radius:12px;border:1px solid #ccd3df;font-size:15px"><button id="internalUnlockBtn" style="padding:13px;border:0;border-radius:12px;cursor:pointer;font-weight:700">ورود به برنامه</button><div id="internalUnlockMsg" style="font-size:13px;line-height:1.8;text-align:center"></div></div>
+  const div=document.createElement('div');
+  div.id='internalLockOverlay';
+  div.className='auth-lock-overlay';
+  div.style.cssText='position:fixed;inset:0;z-index:100000;background:rgba(5,10,22,.82);backdrop-filter:blur(18px) saturate(120%);display:none;align-items:center;justify-content:center;padding:20px;direction:rtl';
+  div.innerHTML=`<div class="auth-entry-card" id="internalLockCard">
+    <div class="auth-lock-icon">🔐</div>
+    <h2 class="auth-lock-title">ورود امن به دستیار</h2>
+    <p class="auth-lock-subtitle">رمز ورود را با صفحه‌کلید مجازی، موس یا صفحه‌کلید کامپیوتر وارد کنید.</p>
+    <div class="auth-keypad-wrap">
+      <div id="internalUnlockDisplay" class="auth-keypad-display" aria-label="رمز عبور">رمز عبور</div>
+      <div id="internalUnlockDots" class="auth-dots" aria-hidden="true"></div>
+      <div id="internalUnlockKeypad" class="auth-keypad">
+        ${[1,2,3,4,5,6,7,8,9].map(n=>`<button type="button" class="auth-key" data-key="${n}">${n}</button>`).join('')}
+        <button type="button" class="auth-key zero" data-key="0">0</button>
+        <button type="button" class="auth-key back" data-key="back">⌫</button>
+        <button type="button" class="auth-key action" data-key="enter">↵</button>
+      </div>
+      <button id="internalUnlockBtn" class="btn auth-enter-btn" type="button">ورود به برنامه</button>
+      <div id="internalUnlockMsg" class="auth-message"></div>
+    </div>
   </div>`;
   document.body.appendChild(div);
+  div.querySelectorAll('[data-key]').forEach(btn=>btn.addEventListener('click',()=>handleVirtualKey(btn.dataset.key)));
   $('internalUnlockBtn').addEventListener('click',unlockInternalApp);
-  $('internalUnlockPassword').addEventListener('keydown',e=>{if(e.key==='Enter')unlockInternalApp()});
+  document.addEventListener('keydown',handleInternalKeyboard);
+  renderVirtualPassword();
 }
-function showInternalLock(){ensureInternalLockUI();$('internalLockOverlay').style.display='flex';setTimeout(()=>$('internalUnlockPassword')?.focus(),50)}
+
+let virtualPasswordInput='';
+function normalizeDigits(value){
+  return String(value||'').replace(/[۰-۹]/g,d=>String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d))).replace(/[٠-٩]/g,d=>String('٠١٢٣٤٥٦٧٨٩'.indexOf(d)));
+}
+function getPasswordLength(){
+  const n=Number(data?._security?.passwordLength||0);
+  return n>0?Math.min(n,64):null;
+}
+function renderVirtualPassword(){
+  const el=$('internalUnlockDisplay'),dots=$('internalUnlockDots');
+  const len=getPasswordLength()||Math.max(virtualPasswordInput.length,6);
+  if(el){el.textContent=virtualPasswordInput?'•'.repeat(virtualPasswordInput.length):'رمز عبور';el.classList.remove('has-error','success')}
+  if(dots){dots.innerHTML=Array.from({length:Math.min(len,32)},()=>'<span class="auth-dot"></span>').join('');dots.querySelectorAll('.auth-dot').forEach((dot,i)=>dot.classList.toggle('filled',i<virtualPasswordInput.length))}
+}
+function handleInternalKeyboard(e){
+  const overlay=$('internalLockOverlay');
+  if(!overlay || overlay.style.display==='none')return;
+  if(e.key==='Enter'){e.preventDefault();unlockInternalApp();return}
+  if(e.key==='Backspace'){e.preventDefault();handleVirtualKey('back');return}
+  const key=normalizeDigits(e.key);
+  if(/^\d$/.test(key)){e.preventDefault();handleVirtualKey(key)}
+}
+function handleVirtualKey(key){
+  const msg=$('internalUnlockMsg');
+  if(msg){msg.textContent='';msg.className='auth-message';msg.style.color=''}
+  if(key==='back') virtualPasswordInput=virtualPasswordInput.slice(0,-1);
+  else if(key==='enter'){unlockInternalApp();return}
+  else if(/^\d$/.test(normalizeDigits(key)) && virtualPasswordInput.length<64) virtualPasswordInput+=normalizeDigits(key);
+  renderVirtualPassword();
+}
+function showInternalLock(){
+  ensureInternalLockUI();
+  virtualPasswordInput='';
+  renderVirtualPassword();
+  const overlay=$('internalLockOverlay'),card=$('internalLockCard');
+  if(card){card.classList.remove('unlocked');void card.offsetWidth;card.classList.add('auth-entry-card')}
+  if(overlay){overlay.style.display='flex';overlay.classList.remove('auth-lock-overlay');void overlay.offsetWidth;overlay.classList.add('auth-lock-overlay')}
+}
 function hideInternalLock(){const x=$('internalLockOverlay');if(x)x.style.display='none'}
 async function unlockInternalApp(){
-  const input=$('internalUnlockPassword'); const msg=$('internalUnlockMsg'); const btn=$('internalUnlockBtn'); const password=input?.value||'';
-  if(!password){if(msg)msg.textContent='رمز داخلی را وارد کنید.';return}
-  if(btn)btn.disabled=true;if(msg)msg.textContent='در حال بررسی...';
+  const btn=$('internalUnlockBtn'),msg=$('internalUnlockMsg'),display=$('internalUnlockDisplay'),card=$('internalLockCard');
+  const password=normalizeDigits(virtualPasswordInput);
+  if(!password){
+    if(msg){msg.textContent='رمز عبور را وارد کنید.';msg.className='auth-message error';msg.style.color='#b42318'}
+    if(display){display.classList.remove('has-error');void display.offsetWidth;display.classList.add('has-error')}
+    return;
+  }
+  if(btn)btn.disabled=true;
+  if(msg){msg.textContent='در حال بررسی رمز...';msg.className='auth-message';msg.style.color='var(--muted)'}
+  await new Promise(r=>setTimeout(r,220));
   try{
-    if(!data._security?.hash)throw new Error('رمز داخلی تنظیم نشده است.');
-    if(!(await verifyInternalPassword(password,data._security)))throw new Error('رمز داخلی اشتباه است.');
-    hideInternalLock(); if(input)input.value=''; if(msg)msg.textContent=''; toast('ورود موفق بود');
-  }catch(e){if(msg){msg.textContent=e.message||'ورود ناموفق';msg.style.color='#b42318'}}finally{if(btn)btn.disabled=false}
+    const record=data?._security;
+    if(!record?.hash||!record?.salt)throw new Error('رمز ورود هنوز توسط مالک برنامه تنظیم نشده است.');
+    if(record.passwordLength && password.length!==Number(record.passwordLength))throw new Error('رمز عبور اشتباه است.');
+    if(!(await verifyInternalPassword(password,record)))throw new Error('رمز عبور اشتباه است.');
+    if(display){display.classList.add('success');display.textContent='✓'}
+    if(msg){msg.textContent='ورود موفق بود';msg.style.color='#16803c'}
+    if(card){card.classList.add('unlocked')}
+    await new Promise(r=>setTimeout(r,420));
+    virtualPasswordInput='';hideInternalLock();renderVirtualPassword();toast('ورود موفق بود');
+  }catch(e){
+    virtualPasswordInput='';
+    if(display){display.classList.remove('has-error');void display.offsetWidth;display.classList.add('has-error')}
+    renderVirtualPassword();
+    if(msg){msg.textContent=e.message||'ورود ناموفق';msg.className='auth-message error';msg.style.color='#b42318'}
+    const overlay=$('internalLockOverlay');
+    if(overlay){overlay.querySelector('.auth-entry-card')?.animate([{transform:'translateX(0)'},{transform:'translateX(-8px)'},{transform:'translateX(8px)'},{transform:'translateX(0)'}],{duration:360})}
+  }finally{if(btn)btn.disabled=false}
 }
-async function setupInternalPassword(){
-  const first=$('setupInternalPassword1')?.value||''; const second=$('setupInternalPassword2')?.value||''; const msg=$('setupInternalMsg'); const btn=$('setupInternalBtn');
-  const say=(t,ok=false)=>{if(msg){msg.textContent=t;msg.style.color=ok?'#16803c':'#b42318'}};
-  if(first.length<6){say('رمز داخلی باید حداقل ۶ کاراکتر باشد.');return}
-  if(first!==second){say('دو رمز یکسان نیستند.');return}
-  if(btn)btn.disabled=true; say('در حال ذخیره امن رمز داخلی در فضای ابری...');
-  try{data._security=await createInternalPasswordRecord(first);localStorage.setItem(KEY,JSON.stringify(data));await cloudSaveNow();hideInternalSetup();showInternalLock();say('');toast('رمز داخلی تنظیم شد')}catch(e){say(cloudErrorText(e)||'ذخیره رمز داخلی ناموفق بود.')}finally{if(btn)btn.disabled=false}
-}
-function ensureInternalSetupUI(){
-  if($('internalSetupOverlay'))return; const div=document.createElement('div');div.id='internalSetupOverlay';
-  div.style.cssText='position:fixed;inset:0;z-index:100001;background:rgba(10,16,30,.84);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:20px;direction:rtl';
-  div.innerHTML=`<div style="width:min(430px,100%);background:var(--card,#fff);color:var(--font,#172033);border-radius:24px;padding:28px;box-shadow:0 25px 80px rgba(0,0,0,.3)">
-  <div style="font-size:42px;text-align:center;margin-bottom:8px">🔑</div><h2 style="margin:0 0 8px;text-align:center">ساخت رمز داخلی برنامه</h2><p style="margin:0 0 20px;text-align:center;opacity:.7;line-height:1.8">این رمز با رمز Supabase فرق دارد. یک رمز حداقل ۶ کاراکتری برای قفل خود برنامه بسازید.</p><div style="display:grid;gap:12px"><input id="setupInternalPassword1" type="password" autocomplete="new-password" placeholder="رمز داخلی جدید" style="padding:13px;border-radius:12px;border:1px solid #ccd3df;font-size:15px"><input id="setupInternalPassword2" type="password" autocomplete="new-password" placeholder="تکرار رمز داخلی" style="padding:13px;border-radius:12px;border:1px solid #ccd3df;font-size:15px"><button id="setupInternalBtn" style="padding:13px;border:0;border-radius:12px;cursor:pointer;font-weight:700">ذخیره رمز داخلی</button><div id="setupInternalMsg" style="font-size:13px;line-height:1.8;text-align:center"></div></div></div>`;
-  document.body.appendChild(div);$('setupInternalBtn').addEventListener('click',setupInternalPassword);
-}
-function hideInternalSetup(){const x=$('internalSetupOverlay');if(x)x.style.display='none'}
-function showInternalSetup(){ensureInternalSetupUI();$('internalSetupOverlay').style.display='flex'}
-async function enforceInternalSecurity(){
-  ensureInternalLockUI();ensureInternalSetupUI();
-  if(data._security?.hash){showInternalLock();}else{showInternalSetup();}
-}
+async function enforceInternalSecurity(){ensureInternalLockUI();showInternalLock()}
 
 function closeModal(){const el=$('modal'); if(el)el.classList.remove('open')}
 function openModal(html){safeHTML('modalBox', html);const el=$('modal'); if(el)el.classList.add('open')}
@@ -643,6 +722,40 @@ function saveTaskFromRegister(){
   toast('مورد ثبت شد');
 }
 
+function cycleTaskStatus(id){
+  const x=data.tasks.find(a=>Number(a.id)===Number(id)); if(!x)return;
+  const next={unknown:'planned',planned:'active',active:'done',done:'done'};
+  x.status=next[x.status||'unknown'];
+  save();
+  toast('وضعیت به «'+statusText(x.status)+'» تغییر کرد');
+}
+function cycleDocStatus(id){
+  const x=data.docs.find(a=>Number(a.id)===Number(id)); if(!x)return;
+  const next={incomplete:'progress',progress:'ready',ready:'ready'};
+  x.status=next[x.status||'incomplete']; x.checked=x.status==='ready';
+  save();
+  toast('وضعیت مدرک به «'+({ready:'آماده شده',progress:'در دست اقدام',incomplete:'ناقص'})[x.status]+'» تغییر کرد');
+}
+function cycleExpenseStatus(id){
+  const x=data.expenses.find(a=>Number(a.id)===Number(id)); if(!x)return;
+  const next={unknown:'pending',pending:'done',done:'done'};
+  x.status=next[x.status||'unknown'];
+  save();
+  toast('وضعیت هزینه به «'+({done:'پرداخت شده',pending:'پرداخت خواهد شد',unknown:'نامشخص'})[x.status]+'» تغییر کرد');
+}
+function taskCycleButton(x){
+  if(x.status==='done')return '';
+  return `<button class="btn secondary small status-cycle-btn" title="انتقال به مرحله بعد" onclick="event.stopPropagation();cycleTaskStatus(${x.id})">→</button>`;
+}
+function docCycleButton(x){
+  if(x.status==='ready')return '';
+  return `<button class="btn secondary small status-cycle-btn" title="انتقال به وضعیت بعد" onclick="event.stopPropagation();cycleDocStatus(${x.id})">→</button>`;
+}
+function expenseCycleButton(x){
+  if(x.status==='done')return '';
+  return `<button class="btn secondary small status-cycle-btn" title="انتقال به وضعیت بعد" onclick="event.stopPropagation();cycleExpenseStatus(${x.id})">→</button>`;
+}
+
 function taskSummaryItem(x){
   const pr = x.priority || 'عادی';
   return `<div class="item">
@@ -654,7 +767,8 @@ function taskSummaryItem(x){
         </div>
         <span style="font-size:12px;color:var(--muted);margin-right:16px;display:block">${fmtDate(x.date, x.dateTo)} ${x.time||''} · ${esc(x.type||'سایر')}</span>
       </div>
-      <div style="display:flex;gap:6px">
+      <div class="summary-actions">
+        ${taskCycleButton(x)}
         <button class="btn secondary small" onclick="openTask(${x.id})">ویرایش</button>
         <button class="btn danger small" onclick="deleteTask(${x.id})">حذف</button>
       </div>
@@ -739,8 +853,24 @@ async function renderDashboard(){
 
  safeHTML('upcoming', upcomingTasks.length?upcomingTasks.map(x=>itemHTML(x)).join(''):'<div class="empty">کار نزدیک یا آینده‌ای ثبت نشده است.</div>');
  
- const counts={ready:data.docs.filter(x=>x.status==='ready').length,progress:data.docs.filter(x=>x.status==='progress').length,incomplete:data.docs.filter(x=>x.status==='incomplete').length};
- safeHTML('docSummary', Object.entries(counts).map(([k,v])=>`<div style="margin:12px 0"><div style="display:flex;justify-content:space-between"><span>${k==='ready'?'🟢 آماده شده':k==='progress'?'🟡 در دست اقدام':'⚪ ناقص'}</span><b>${v}</b></div><div class="progress"><i style="width:${Math.min(100,v*20)}%"></i></div></div>`).join(''));
+ const counts={
+   ready:data.docs.filter(x=>x.status==='ready').length,
+   progress:data.docs.filter(x=>x.status==='progress').length,
+   incomplete:data.docs.filter(x=>x.status==='incomplete' || !x.status).length
+ };
+ const docTotal=data.docs.length;
+ safeText('sDocTotal', docTotal);
+ const docLabels={ready:'🟢 آماده شده',progress:'🟡 در دست اقدام',incomplete:'⚪ ناقص'};
+ safeHTML('docSummary', Object.entries(counts).map(([k,v])=>{
+   const pct=docTotal?Math.round(v*100/docTotal):0;
+   return `<div class="item" style="display:block">
+     <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+       <span>${docLabels[k]}</span>
+       <b>${v} <small style="color:var(--muted);font-weight:500">(${pct}٪)</small></b>
+     </div>
+     <div class="progress" style="margin-top:8px"><i style="width:${pct}%"></i></div>
+   </div>`;
+ }).join('') || '<div class="empty">هنوز مدرکی ثبت نشده است.</div>');
  
  const lastExpenses = [...data.expenses].slice(-5).reverse();
  safeHTML('expenseSummary', lastExpenses.length ? lastExpenses.map(x => {
@@ -863,8 +993,9 @@ function docSummaryItem(x){
         </div>
         <span style="font-size:12px;color:var(--muted);margin-right:24px;display:block">${esc(x.category||'سایر')} · ${fmtDate(x.date)} ${x.note?'· '+esc(x.note):''}</span>
       </div>
-      <div style="display:flex;align-items:center;gap:6px">
+      <div class="summary-actions">
         ${filePreviewHTML}
+        ${docCycleButton(x)}
         <button class="btn secondary small" onclick="openDoc(${x.id})">ویرایش</button>
         <button class="btn danger small" onclick="removeDoc(${x.id})">حذف</button>
       </div>
@@ -968,7 +1099,8 @@ function expenseSummaryItem(x){
         <b style="display:block;font-size:13px">${esc(name)}</b>
         <span style="font-size:12px;color:var(--muted)">${cat} · ${amount.toLocaleString('fa-IR')} ${currency}${convertedStr}</span>
       </div>
-      <div style="display:flex;gap:6px">
+      <div class="summary-actions">
+        ${expenseCycleButton(x)}
         <button class="btn secondary small" onclick="openExpense(${x.id})">ویرایش</button>
         <button class="btn danger small" onclick="deleteExpense(${x.id})">حذف</button>
       </div>
