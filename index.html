@@ -7,7 +7,7 @@
 <style>
 :root{--bg:#f4f7fb;--font:#172033;--inputText:#000;--card:#fff;--text:#172033;--muted:#718096;--primary:#4f46e5;--primary2:#7c3aed;--line:#e5e7eb;--green:#16a34a;--yellow:#d97706;--red:#dc2626;--blue:#2563eb;--shadow:0 12px 35px rgba(30,41,59,.08);--side:#111827;--input:#fff} body.dark{--bg:#0b1220;--card:#111827;--text:#e5e7eb;--muted:#94a3b8;--line:#263244;--input:#0f172a;--shadow:0 12px 35px rgba(0,0,0,.28)}
 *{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:var(--bg);color:var(--font)}
-button,input,select,textarea{font:inherit}input,select,textarea{color:var(--inputText)}button{cursor:pointer;border:0}.side{background:var(--side)}.card,.day,.dow,.modal-box{background:var(--card);color:var(--font)}.field input,.field select,.field textarea{background:var(--input);color:var(--text);border-color:var(--line)}.item,.file-card{background:var(--card);border-color:var(--line)}.day,.dow{border-color:var(--line)}.theme-mode-switch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.theme-mode-card{display:flex;align-items:center;gap:11px;text-align:right;padding:13px 14px;border:2px solid var(--line);border-radius:14px;background:var(--card);color:var(--text);transition:.2s;box-shadow:0 3px 10px rgba(15,23,42,.05)}.theme-mode-card:hover{transform:translateY(-1px);border-color:var(--primary)}.theme-mode-card.active{border-color:var(--primary);box-shadow:0 0 0 3px rgba(79,70,229,.12)}.theme-mode-icon{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;font-size:21px;flex:none}.light-mode .theme-mode-icon{background:#fff7cc}.dark-mode .theme-mode-icon{background:#1e293b}.theme-mode-card b,.theme-mode-card small{display:block}.theme-mode-card small{margin-top:3px;color:var(--muted);font-size:11px;font-weight:400}@media(max-width:600px){.theme-mode-switch{grid-template-columns:1fr}}.theme-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.theme-choice{border:1px solid var(--line);padding:14px;border-radius:12px;background:var(--card);color:var(--text);text-align:center}.swatch{height:45px;border-radius:99px;margin-bottom:8px}.submenu{display:none;padding:3px 0 6px}.submenu.open{display:block}.submenu button{width:100%;background:transparent;color:#94a3b8;text-align:right;padding:9px 32px;border-radius:999px;font-size:12px}.submenu button:hover,.submenu button.active{background:#1f2937;color:#fff}.nav-main{display:flex!important;align-items:center;justify-content:flex-start;gap:8px}.nav-main>span:first-of-type{flex:1;white-space:nowrap}.nav-main .chev{margin-right:auto}.chev{transition:.2s}.nav-main.open .chev{transform:rotate(180deg)}
+button,input,select,textarea{font:inherit}input,select,textarea{color:var(--inputText)}button{cursor:pointer;border:0}.side{background:var(--side)}.card,.day,.dow,.modal-box{background:var(--card);color:var(--font)}.field input,.field select,.field textarea{background:var(--input);color:var(--text);border-color:var(--line)}.item,.file-card{background:var(--card);border-color:var(--line)}.day,.dow{border-color:var(--line)}.theme-mode-switch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.theme-mode-card{display:flex;align-items:center;gap:11px;text-align:right;padding:13px 14px;border:2px solid var(--line);border-radius:14px;background:var(--card);color:var(--text);transition:.2s;box-shadow:0 3px 10px rgba(15,23,42,.05)}.theme-mode-card:hover{transform:translateY(-1px);border-color:var(--primary)}.theme-mode-card.active{border-color:var(--primary);box-shadow:0 0 0 3px rgba(79,70,229,.12)}.theme-mode-icon{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;font-size:21px;flex:none}.light-mode .theme-mode-icon{background:#fff7cc}.dark-mode .theme-mode-icon{background:#1e293b}.theme-mode-card b,.theme-mode-card small{display:block}.theme-mode-card small{margin-top:3px;color:var(--muted);font-size:11px;font-weight:400}@media(max-width:600px){.theme-mode-switch{grid-template-columns:1fr}}.theme-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.theme-choice{border:1px solid var(--line);padding:14px;border-radius:12px;background:var(--card);color:var(--text);text-align:center}.swatch{height:45px;border-radius:99px;margin-bottom:8px}.submenu{display:none;padding:3px 0 6px}.submenu.open{display:block}.submenu button{width:100%;background:transparent;color:#94a3b8;text-align:right;padding:9px 32px;border-radius:99px;font-size:12px}.submenu button:hover,.submenu button.active{background:#1f2937;color:#fff}.nav-main{display:flex!important;align-items:center;justify-content:flex-start;gap:8px}.nav-main>span:first-of-type{flex:1;white-space:nowrap}.nav-main .chev{margin-right:auto}.chev{transition:.2s}.nav-main.open .chev{transform:rotate(180deg)}
 .app{display:flex;min-height:100vh}.side{width:245px;background:#111827;color:#fff;padding:16px 14px;position:fixed;right:0;top:0;bottom:0;z-index:5}
 
 .logo-box{display:flex;align-items:center;justify-content:center;padding:0;background:#1f2937;border:1px solid #374151;border-radius:14px;margin-bottom:14px;box-shadow:0 4px 12px rgba(0,0,0,.15);height:60px;overflow:hidden}
@@ -21,99 +21,44 @@ button,input,select,textarea{font:inherit}input,select,textarea{color:var(--inpu
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
 .label{color:var(--muted);font-size:13px}
 .section-title{display:flex;justify-content:space-between;align-items:center;margin:24px 0 12px}.section-title h2{font-size:18px;margin:0}
-.btn{background:var(--primary);color:#fff;padding:10px 15px;border-radius:10px;transition:.2s}.btn:hover{filter:brightness(1.1)}.btn.secondary{background:#eef2ff;color:#3730a3}.btn.secondary:hover{background:#e0e7ff}.btn.danger{background:#fee2e2;color:#b91c1c}.btn.small{padding:7px 10px;font-size:12px}
+.btn{background:var(--primary);color:#fff;padding:10px 15px;border-radius:10px}.btn.secondary{background:#eef2ff;color:#3730a3}.btn.danger{background:#fee2e2;color:#b91c1c}.btn.small{padding:7px 10px;font-size:12px}
 
-/* استایل هنری ROADMAP */
+/* استایل هنری و زیگزاگی ROADMAP */
 .roadmap-container{position:relative;padding:40px 20px;background:var(--card);border-radius:24px;border:1px solid var(--line);overflow-x:auto}
-.roadmap-art{display:flex;align-items:center;justify-content:space-between;min-width:950px;position:relative;padding:60px 30px;gap:20px}
+.roadmap-art{display:flex;align-items:center;justify-content:space-between;min-width:850px;position:relative;padding:60px 20px}
 .roadmap-svg-line{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
 .roadmap-svg-line path{stroke:url(#artGradient);stroke-width:4;fill:none;stroke-linecap:round;stroke-dasharray:8 6}
 
-.art-step{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;width:180px;cursor:pointer;transition:transform .3s cubic-bezier(.34,1.56,.64,1);flex-shrink:0}
-.art-step:hover{transform:scale(1.06) translateY(-6px)}
-.art-step.up{transform:translateY(-35px)}
-.art-step.down{transform:translateY(35px)}
-.art-step.up:hover{transform:translateY(-42px) scale(1.06)}
-.art-step.down:hover{transform:translateY(28px) scale(1.06)}
+.art-step{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;width:150px;cursor:pointer;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.art-step:hover{transform:scale(1.08) translateY(-6px)}
+.art-step.up{transform:translateY(-40px)}
+.art-step.down{transform:translateY(40px)}
+.art-step.up:hover{transform:translateY(-48px) scale(1.08)}
+.art-step.down:hover{transform:translateY(32px) scale(1.08)}
 
 .art-node{width:58px;height:58px;border-radius:50%;background:var(--card);border:3px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:bold;box-shadow:0 10px 25px rgba(0,0,0,.08);transition:all .3s ease;position:relative}
 .art-step.done .art-node{border-color:var(--green);background:#dcfce7;color:var(--green);box-shadow:0 0 18px rgba(22,163,74,.25)}
 .art-step.active .art-node{border-color:var(--primary);background:#eef2ff;color:var(--primary);animation:artPulse 2s infinite}
 .art-step.planned .art-node{border-color:#cbd5e1;color:var(--muted)}
 
-.art-card{margin-top:12px;background:var(--bg);border:1px solid var(--line);padding:12px 14px;border-radius:16px;text-align:center;width:100%;box-shadow:0 4px 15px rgba(0,0,0,.03);backdrop-filter:blur(10px)}
-.art-card b{display:block;font-size:12px;color:var(--text);word-break:break-word;line-height:1.6;margin-bottom:4px}
-.art-card small{display:block;color:var(--muted);font-size:10px;line-height:1.4}
+.art-card{margin-top:12px;background:var(--bg);border:1px solid var(--line);padding:10px 14px;border-radius:16px;text-align:center;width:100%;box-shadow:0 4px 15px rgba(0,0,0,.03);backdrop-filter:blur(10px)}
+.art-card b{display:block;font-size:12px;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:3px}
+.art-card small{display:block;color:var(--muted);font-size:10px}
 
 @keyframes artPulse{0%{box-shadow:0 0 0 0 rgba(79,70,229,.5)}70%{box-shadow:0 0 0 16px rgba(79,70,229,0)}100%{box-shadow:0 0 0 0 rgba(79,70,229,0)}}
 
-.list{display:flex;flex-direction:column;gap:14px}
-.item{border:1px solid var(--line);border-radius:13px;padding:14px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:6px}
-.item:first-child{margin-top:2px}
-.item-main{min-width:0}
-.item-title{font-weight:700}
-.item-meta{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.9}
-
+.list{display:flex;flex-direction:column;gap:10px}.item{border:1px solid var(--line);border-radius:13px;padding:12px;display:flex;justify-content:space-between;align-items:center;gap:10px}.item-main{min-width:0}.item-title{font-weight:700}.item-meta{font-size:12px;color:var(--muted);margin-top:5px}
 .badge{padding:5px 9px;border-radius:999px;font-size:11px;white-space:nowrap}.green{background:#dcfce7;color:#166534}.yellow{background:#fef3c7;color:#92400e}.red{background:#fee2e2;color:#991b1b}.blue{background:#dbeafe;color:#1e40af}.gray{background:#f1f5f9;color:#475569}
 .progress{height:8px;background:#edf1f7;border-radius:99px;overflow:hidden;margin-top:10px}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--primary),var(--primary2))}
 table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1px solid var(--line);text-align:right;font-size:13px}th{color:var(--muted)}
-
-.calendar-card{border-radius:24px;border:1px solid var(--line);background:var(--card);padding:24px;box-shadow:var(--shadow);width:100%;overflow:hidden}
-.calendar-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding:0 4px}
-.calendar-head h2{font-size:20px;margin:0;font-weight:800;color:var(--text)}
-.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;width:100%}
-.dow{text-align:center;font-weight:700;font-size:13px;color:var(--muted);padding:10px 0;background:var(--bg);border-radius:12px;border:1px solid var(--line)}
-.day{background:var(--card);border:1px solid var(--line);min-height:135px;max-height:155px;border-radius:14px;padding:10px;cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;overflow:hidden;position:relative}
-.day:hover{transform:translateY(-4px);border-color:var(--primary);box-shadow:0 10px 25px rgba(79,70,229,.12);z-index:2}
-.dow{min-height:auto}
-.day.today{border:2px solid var(--primary);background:linear-gradient(135deg,rgba(79,70,229,.04),rgba(124,58,237,.08))}
-.day.muted{opacity:.3;cursor:default;pointer-events:none}
-.day strong{font-size:13px;display:inline-flex;width:26px;height:26px;align-items:center;justify-content:center;border-radius:50%;background:var(--bg);color:var(--text);margin-bottom:6px;font-weight:700;flex-shrink:0}
-.day.today strong{background:var(--primary);color:#fff}
-.day-events{display:flex;flex-direction:column;gap:5px;overflow-y:auto;flex:1;padding-right:2px;scrollbar-width:thin}
-.day-events::-webkit-scrollbar{width:4px}
-.day-events::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
-.event{display:block;border-radius:6px;padding:5px 8px;font-size:11px;font-weight:600;white-space:normal;overflow:hidden;line-height:1.5;transition:.2s}
-.event:hover{filter:brightness(.95)}
-.event.task{background:#eef2ff;color:#3730a3;border-right:3px solid var(--primary)}
-.event.doc{background:#fef3c7;color:#92400e;border-right:3px solid var(--yellow)}
-.event.expense{background:#dcfce7;color:#166534;border-right:3px solid var(--green)}
-
-.modal{position:fixed;inset:0;background:rgba(15,23,42,.6);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:20;padding:15px}.modal.open{display:flex}.modal-box{background:#fff;border-radius:20px;width:min(650px,100%);max-height:90vh;overflow:auto;padding:24px;box-shadow:0 25px 50px rgba(0,0,0,.25)}.modal-head{display:flex;justify-content:space-between;align-items:center}.close{background:#f1f5f9;border-radius:8px;padding:6px 10px;cursor:pointer}.form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:15px}.field.full{grid-column:1/-1}.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1px solid #d7dee9;border-radius:10px;padding:10px;background:#fff;outline:none}.field textarea{min-height:85px;resize:vertical}.modal-actions{display:flex;justify-content:flex-start;gap:8px;margin-top:15px}
+.calendar-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.day,.dow{background:#fff;border:1px solid var(--line);min-height:95px;border-radius:10px;padding:8px;cursor:pointer;transition:.2s}.day:hover{border-color:var(--primary)}.dow{min-height:auto;text-align:center;font-weight:bold;color:var(--muted);background:#f8fafc;cursor:default}.day.today{outline:2px solid var(--primary)}.day.muted{opacity:.35;cursor:default}.day strong{font-size:12px;display:block;margin-bottom:4px}.event{display:block;border-radius:6px;padding:3px 5px;margin-top:4px;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.event.task{background:#eef2ff;color:#3730a3}.event.doc{background:#fef3c7;color:#92400e}.event.expense{background:#dcfce7;color:#166534}
+.modal{position:fixed;inset:0;background:rgba(15,23,42,.5);display:none;align-items:center;justify-content:center;z-index:20;padding:15px}.modal.open{display:flex}.modal-box{background:#fff;border-radius:18px;width:min(650px,100%);max-height:90vh;overflow:auto;padding:20px}.modal-head{display:flex;justify-content:space-between;align-items:center}.close{background:#f1f5f9;border-radius:8px;padding:6px 10px}.form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:15px}.field.full{grid-column:1/-1}.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1px solid #d7dee9;border-radius:10px;padding:10px;background:#fff;outline:none}.field textarea{min-height:85px;resize:vertical}.modal-actions{display:flex;justify-content:flex-start;gap:8px;margin-top:15px}
 .empty{text-align:center;color:var(--muted);padding:30px}.search{width:250px;border:1px solid var(--line);padding:10px 12px;border-radius:10px}
 .toast{position:fixed;bottom:22px;left:22px;background:#111827;color:#fff;padding:12px 17px;border-radius:10px;display:none;z-index:30}
-
-/* استایل کیبورد مجازی (عدد ۱ در سمت چپ قرار می‌گیرد) */
-.v-keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;user-select:none}
-.v-key{background:var(--bg);border:1px solid var(--line);padding:12px;border-radius:12px;font-size:18px;font-weight:bold;text-align:center;cursor:pointer;transition:.2s;color:var(--text)}
-.v-key:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
-
-@media(max-width:768px){
-  .side{position:fixed;top:auto;bottom:0;right:0;left:0;width:100%!important;height:65px;flex-direction:row;padding:6px 8px;z-index:1000;border-top:1px solid var(--line);box-shadow:0 -4px 20px rgba(0,0,0,.2);background:#111827}
-  .side .logo-box{display:none}
-  .cloud-accordion{display:none}
-  .nav{display:flex;justify-content:space-around;width:100%;align-items:center;margin:0}
-  .nav button{margin:0;padding:4px;font-size:10px;text-align:center;border-radius:8px;display:flex;flex-direction:column;align-items:center;gap:1px;color:#cbd5e1}
-  .nav button span{display:block!important;font-size:9px}
-  .nav button.active{background:#263149;color:#fff}
-  .nav button.nav-main{display:flex!important;flex-direction:column!important;align-items:center!important}
-  .submenu{display:none;position:absolute;bottom:70px;right:10px;background:#111827;border:1px solid #374151;border-radius:12px;box-shadow:0 -4px 20px rgba(0,0,0,.3);padding:6px;width:180px;z-index:1001}
-  .submenu.open{display:block!important}
-  .submenu button{text-align:right;padding:8px 12px;color:#cbd5e1;font-size:11px;border-radius:8px}
-  
-  .main{margin-right:0!important;margin-bottom:90px;width:100%!important;padding:10px}
-  .cards,.form{grid-template-columns:1fr!important}
-  .top{flex-direction:column;align-items:flex-start;gap:6px;margin-bottom:12px}
-  .search{width:100%!important}
-  
-  .calendar-card{padding:12px!important}
-  .calendar{gap:4px!important}
-  .day{min-height:95px!important;max-height:115px!important;padding:6px!important;border-radius:10px!important}
-  .dow{padding:6px 0!important;font-size:11px!important}
-}
-
+@media(max-width:1000px){.side{width:75px}.nav button span{display:none}.nav button{text-align:center}.main{margin-right:75px;width:calc(100% - 75px)}.cards{grid-template-columns:1fr 1fr}}
 .dark{--bg:#0b1220;--card:#111827;--text:#f8fafc;--font:#f8fafc;--line:#273449;--muted:#94a3b8;--inputText:#000}.dark .card,.dark .day,.dark .modal-box{background:#111827;color:#f8fafc}.dark .day,.dark .dow{border-color:#273449}.dark .field input,.dark .field select,.dark .field textarea{background:#fff;color:#000}.dark .nav button{color:#cbd5e1}.dark .top h1,.dark .section-title h2{color:#f8fafc}
-
+@media(max-width:650px){.main{padding:12px}.cards,.form{grid-template-columns:1fr}.top{align-items:flex-start;gap:10px}.search{width:160px}.side{width:60px}.main{margin-right:60px;width:calc(100% - 60px)}}
 .bg-photo-layer{position:fixed;inset:-30px;z-index:-1;background-position:center;background-repeat:no-repeat;background-size:cover;filter:blur(0px) brightness(1) contrast(1) saturate(1);opacity:1;transform:scale(1.08);pointer-events:none}.has-bg-photo{background-image:none!important}.theme-photo-preview{margin-top:12px;height:150px;border-radius:14px;border:1px solid var(--line);background-position:center;background-size:cover;background-repeat:no-repeat;display:flex;align-items:center;justify-content:center;color:#fff;text-shadow:0 1px 3px #000;background-color:#e5e7eb}.slider-box{padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card);margin-top:8px}.slider-box input[type=range]{width:100%;accent-color:var(--primary);cursor:pointer}.expense-converter{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}.converter-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;font-size:12px;font-weight:700}.converter-head small{color:var(--muted);font-weight:400}.converter-results{display:grid;grid-template-columns:1fr 1fr;gap:8px}.converter-results>div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 10px}.converter-results span{display:block;font-size:10px;color:var(--muted)}.converter-results b{display:block;margin-top:3px;font-size:13px}
 .expense-accounting{display:flex;flex-wrap:nowrap;gap:10px;overflow-x:auto;padding:2px 2px 8px}.account-card{border:1px solid var(--line);border-radius:13px;padding:12px;background:var(--card);min-width:145px;flex:1 1 0}.account-card b{display:block;font-size:18px;margin-top:5px}.status-done{border-right:4px solid var(--green)}.status-pending{border-right:4px solid var(--yellow)}.status-unknown{border-right:4px solid var(--muted)}.status-badge{display:inline-block;padding:5px 9px;border-radius:999px;font-size:11px;white-space:nowrap}.status-badge.done{background:#dcfce7;color:#166534}.status-badge.pending{background:#fef3c7;color:#92400e}.status-badge.unknown{background:#f1f5f9;color:#475569}.bg-settings-accordion{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:10px}.bg-setting{border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}.bg-setting summary{cursor:pointer;list-style:none;padding:11px 13px;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:space-between}.bg-setting summary::-webkit-details-marker{display:none}.bg-setting summary:after{content:'⌄';font-size:16px;transition:.2s}.bg-setting[open] summary:after{transform:rotate(180deg)}.bg-setting .slider-box{border:0;border-top:1px solid var(--line);border-radius:0;margin:0}.bg-settings-note{font-size:12px;color:var(--muted);margin-top:8px}
 .cloud-accordion{margin:0 0 14px;border:1px solid #1f2937;border-radius:10px;background:#172033;overflow:hidden}
@@ -134,8 +79,7 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
 .expense-summary-title{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid var(--line)}
 .expense-summary-title b{font-size:16px}
 .expense-summary-box .list{display:flex;flex-direction:column;gap:0}
-.expense-summary-box .item{padding:12px 0;border-bottom:1px solid var(--line);margin-top:6px}
-.expense-summary-box .item:first-child{margin-top:2px}
+.expense-summary-box .item{padding:10px 0;border-bottom:1px solid var(--line)}
 .expense-summary-box .item:last-child{border-bottom:0}
 .priority-dot{display:inline-block;width:10px;height:10px;border-radius:50%;flex-shrink:0}
 .priority-dot.فوری{background-color:var(--red)}
@@ -201,6 +145,7 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
     <button onclick="showPage('expenses',this)">💰 <span>هزینه‌ها</span></button>
     <button onclick="showPage('all',this)">📋 <span>همه موارد</span></button>
     <button onclick="showPage('theme',this)">🎨 <span>تم و ظاهر</span></button>
+    <button onclick="showPage('security',this)">🔐 <span>امنیت</span></button>
   </div>
 </aside>
 
@@ -229,6 +174,10 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
     
     <div class="card">
       <div class="section-title"><h2>وضعیت مدارک</h2></div>
+      <div class="dashboard-total-box">
+        <span>📌 کل موارد:</span>
+        <b id="sTasks">0</b>
+      </div>
       <div id="docSummary"></div>
     </div>
     
@@ -284,16 +233,7 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
   </div>
 </section>
 
-<section id="calendar" class="page">
-  <div class="calendar-card">
-    <div class="calendar-head">
-      <button class="btn secondary small" onclick="changeMonth(-1)">ماه قبل</button>
-      <h2 id="monthName"></h2>
-      <button class="btn secondary small" onclick="changeMonth(1)">ماه بعد</button>
-    </div>
-    <div class="calendar" id="calendarGrid"></div>
-  </div>
-</section>
+<section id="calendar" class="page"><div class="card"><div class="calendar-head"><button class="btn secondary small" onclick="changeMonth(-1)">ماه قبل</button><h2 id="monthName"></h2><button class="btn secondary small" onclick="changeMonth(1)">ماه بعد</button></div><div class="calendar" id="calendarGrid"></div></div></section>
 
 <section id="docs" class="page">
  <div class="card" style="margin-bottom:16px">
@@ -379,6 +319,21 @@ table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1
 
 <section id="all" class="page">
  <div class="card"><div class="section-title"><h2>📋 همه موارد</h2><input class="search" id="search" oninput="renderAll()" placeholder="جستجو..."></div><div id="allList" class="list"></div></div>
+</section>
+
+<section id="security" class="page">
+  <div class="section-title"><h2>🔐 امنیت حساب</h2></div>
+  <div class="card" style="max-width:560px;margin:0 auto">
+    <h2 style="margin-top:0">رمز عبور داخلی برنامه</h2>
+    <p class="muted" style="font-size:13px;line-height:1.9">این رمز کاملاً جدا از رمز Supabase است. رمز داخلی به‌صورت امنِ هش‌شده داخل فضای مشترک Supabase ذخیره می‌شود و بین دستگاه‌ها و اعضای همین فضای کاری مشترک خواهد بود.</p>
+    <form id="securityForm" class="form" style="grid-template-columns:1fr" onsubmit="changeInternalPassword(event)">
+      <div class="field"><label>رمز عبور داخلی فعلی</label><input id="oldInternalPassword" type="password" autocomplete="current-password" placeholder="رمز داخلی فعلی" required></div>
+      <div class="field"><label>رمز عبور داخلی جدید</label><input id="newInternalPassword1" type="password" autocomplete="new-password" minlength="6" placeholder="حداقل ۶ کاراکتر" required></div>
+      <div class="field"><label>تکرار رمز عبور داخلی جدید</label><input id="newInternalPassword2" type="password" autocomplete="new-password" minlength="6" placeholder="رمز جدید را دوباره وارد کنید" required></div>
+      <div id="securityMsg" style="font-size:13px;line-height:1.8"></div>
+      <button type="submit" class="btn" id="changePasswordBtn" style="width:100%">🔒 تغییر رمز داخلی</button>
+    </form>
+  </div>
 </section>
 
 <section id="theme" class="page">
@@ -546,7 +501,30 @@ function fmtDate(d, dTo){
 }
 function money(n,currency='تومان'){return Number(n||0).toLocaleString('fa-IR')+' '+(currency||'تومان')}
 function toast(t){const el=$('toast'); if(el){el.textContent=t;el.style.display='block';setTimeout(()=>el.style.display='none',1800)}}
-function showPage(id,btn){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));const p=$(id); if(p)p.classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');const names={dashboard:'داشبورد',register:'ثبت مورد',calendar:'تقویم',docs:'مدارک',expenses:'هزینه‌ها',all:'همه موارد',theme:'تم و ظاهر'};safeText('pageTitle', names[id])}
+function showPage(id,btn){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));const p=$(id); if(p)p.classList.add('active');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');const names={dashboard:'داشبورد',register:'ثبت مورد',calendar:'تقویم',docs:'مدارک',expenses:'هزینه‌ها',all:'همه موارد',theme:'تم و ظاهر',security:'امنیت'};safeText('pageTitle', names[id])}
+async function changeInternalPassword(e){
+  if(e)e.preventDefault();
+  const oldPassword=$('oldInternalPassword')?.value||'';
+  const newPassword=$('newInternalPassword1')?.value||'';
+  const repeatPassword=$('newInternalPassword2')?.value||'';
+  const msg=$('securityMsg'); const btn=$('changePasswordBtn');
+  const say=(t,ok=false)=>{if(msg){msg.textContent=t;msg.style.color=ok?'#16803c':'#b42318'}};
+  if(!supabaseClient||!cloudUser||!cloudReady){say('ابتدا وارد فضای ابری شوید.');return}
+  if(!oldPassword||!newPassword||!repeatPassword){say('هر سه فیلد را کامل کنید.');return}
+  if(newPassword.length<6){say('رمز جدید باید حداقل ۶ کاراکتر باشد.');return}
+  if(newPassword!==repeatPassword){say('تکرار رمز جدید با رمز جدید یکسان نیست.');return}
+  if(!data._security?.hash){say('برای این برنامه هنوز رمز داخلی تنظیم نشده است. ابتدا از پنجره راه‌اندازی رمز داخلی استفاده کنید.');return}
+  if(btn)btn.disabled=true; say('در حال بررسی رمز داخلی فعلی...');
+  try{
+    const ok=await verifyInternalPassword(oldPassword,data._security);
+    if(!ok)throw new Error('رمز عبور داخلی فعلی صحیح نیست.');
+    data._security=await createInternalPasswordRecord(newPassword);
+    localStorage.setItem(KEY,JSON.stringify(data));
+    await cloudSaveNow();
+    $('oldInternalPassword').value='';$('newInternalPassword1').value='';$('newInternalPassword2').value='';
+    say('✅ رمز عبور داخلی با موفقیت تغییر کرد.',true); toast('رمز داخلی تغییر کرد');
+  }catch(err){say(err.message||'تغییر رمز داخلی ناموفق بود.')}finally{if(btn)btn.disabled=false}
+}
 
 function bytesToB64(bytes){let binary='';bytes.forEach(b=>binary+=String.fromCharCode(b));return btoa(binary)}
 function b64ToBytes(b64){const binary=atob(b64);const out=new Uint8Array(binary.length);for(let i=0;i<binary.length;i++)out[i]=binary.charCodeAt(i);return out}
@@ -564,75 +542,23 @@ async function verifyInternalPassword(password,record){
   const hash=await deriveInternalHash(password,record.salt);
   return hash===record.hash;
 }
-
 function ensureInternalLockUI(){
   if($('internalLockOverlay'))return;
   const div=document.createElement('div');div.id='internalLockOverlay';
-  div.style.cssText='position:fixed;inset:0;z-index:100000;background:rgba(10,16,30,.86);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:20px;direction:rtl';
-  div.innerHTML=`<div style="width:min(400px,100%);background:var(--card,#fff);color:var(--font,#172033);border-radius:24px;padding:26px;box-shadow:0 25px 80px rgba(0,0,0,.3)">
-    <div style="font-size:36px;text-align:center;margin-bottom:6px">🔐</div>
-    <h2 style="margin:0 0 6px;text-align:center;font-size:20px">قفل داخلی برنامه</h2>
-    <p style="margin:0 0 16px;text-align:center;opacity:.7;font-size:13px">رمز ورود خود را با کیبورد زیر یا کیبورد رایانه وارد کنید.</p>
-    
-    <div style="display:grid;gap:12px">
-      <input id="internalUnlockPassword" type="password" readonly placeholder="رمز عبور" style="padding:14px;border-radius:14px;border:1px solid #ccd3df;font-size:18px;text-align:center;letter-spacing:4px;background:var(--input);color:var(--text)">
-      
-      <!-- کیبورد عددی (عدد ۱ سمت چپ و بقیه اعداد به ترتیب) -->
-      <div class="v-keypad">
-        <div class="v-key" onclick="pressKey('3')">3</div>
-        <div class="v-key" onclick="pressKey('2')">2</div>
-        <div class="v-key" onclick="pressKey('1')">1</div>
-        <div class="v-key" onclick="pressKey('6')">6</div>
-        <div class="v-key" onclick="pressKey('5')">5</div>
-        <div class="v-key" onclick="pressKey('4')">4</div>
-        <div class="v-key" onclick="pressKey('9')">9</div>
-        <div class="v-key" onclick="pressKey('8')">8</div>
-        <div class="v-key" onclick="pressKey('7')">7</div>
-        <div class="v-key" onclick="pressKey('DEL')" style="color:var(--yellow);background:#fef3c7;font-size:14px;display:flex;align-items:center;justify-content:center">⌫</div>
-        <div class="v-key" onclick="pressKey('0')">0</div>
-        <div class="v-key" onclick="pressKey('C')" style="color:var(--red);background:#fee2e2;font-size:14px;display:flex;align-items:center;justify-content:center">پاک کردن</div>
-      </div>
-
-      <button id="internalUnlockBtn" class="btn" style="width:100%;padding:13px;border-radius:14px;font-weight:700;margin-top:4px">تایید و ورود</button>
-      <div id="internalUnlockMsg" style="font-size:13px;line-height:1.6;text-align:center"></div>
-    </div>
+  div.style.cssText='position:fixed;inset:0;z-index:100000;background:rgba(10,16,30,.82);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:20px;direction:rtl';
+  div.innerHTML=`<div style="width:min(430px,100%);background:var(--card,#fff);color:var(--font,#172033);border-radius:24px;padding:28px;box-shadow:0 25px 80px rgba(0,0,0,.3)">
+    <div style="font-size:42px;text-align:center;margin-bottom:8px">🔐</div><h2 style="margin:0 0 8px;text-align:center">قفل داخلی برنامه</h2><p style="margin:0 0 20px;text-align:center;opacity:.7;line-height:1.8">برای ورود به دستیار شخصی پرهام، رمز داخلی برنامه را وارد کنید.</p>
+    <div style="display:grid;gap:12px"><input id="internalUnlockPassword" type="password" autocomplete="current-password" placeholder="رمز عبور داخلی" style="padding:13px;border-radius:12px;border:1px solid #ccd3df;font-size:15px"><button id="internalUnlockBtn" style="padding:13px;border:0;border-radius:12px;cursor:pointer;font-weight:700">ورود به برنامه</button><div id="internalUnlockMsg" style="font-size:13px;line-height:1.8;text-align:center"></div></div>
   </div>`;
   document.body.appendChild(div);
   $('internalUnlockBtn').addEventListener('click',unlockInternalApp);
-
-  document.addEventListener('keydown', e => {
-    if($('internalLockOverlay').style.display === 'flex'){
-      if(e.key >= '0' && e.key <= '9'){
-        pressKey(e.key);
-      } else if(e.key === 'Backspace'){
-        pressKey('DEL');
-      } else if(e.key === 'Escape' || e.key === 'c' || e.key === 'C'){
-        pressKey('C');
-      } else if(e.key === 'Enter'){
-        unlockInternalApp();
-      }
-    }
-  });
+  $('internalUnlockPassword').addEventListener('keydown',e=>{if(e.key==='Enter')unlockInternalApp()});
 }
-
-function pressKey(val){
-  const input=$('internalUnlockPassword');
-  if(!input)return;
-  if(val==='C'){
-    input.value='';
-  }else if(val==='DEL'){
-    input.value=input.value.slice(0,-1);
-  }else{
-    input.value+=val;
-  }
-}
-
-function showInternalLock(){ensureInternalLockUI();$('internalLockOverlay').style.display='flex';}
+function showInternalLock(){ensureInternalLockUI();$('internalLockOverlay').style.display='flex';setTimeout(()=>$('internalUnlockPassword')?.focus(),50)}
 function hideInternalLock(){const x=$('internalLockOverlay');if(x)x.style.display='none'}
-
 async function unlockInternalApp(){
   const input=$('internalUnlockPassword'); const msg=$('internalUnlockMsg'); const btn=$('internalUnlockBtn'); const password=input?.value||'';
-  if(!password){if(msg)msg.textContent='لطفاً رمز عبور را وارد کنید.';return}
+  if(!password){if(msg)msg.textContent='رمز داخلی را وارد کنید.';return}
   if(btn)btn.disabled=true;if(msg)msg.textContent='در حال بررسی...';
   try{
     if(!data._security?.hash)throw new Error('رمز داخلی تنظیم نشده است.');
@@ -640,29 +566,19 @@ async function unlockInternalApp(){
     hideInternalLock(); if(input)input.value=''; if(msg)msg.textContent=''; toast('ورود موفق بود');
   }catch(e){if(msg){msg.textContent=e.message||'ورود ناموفق';msg.style.color='#b42318'}}finally{if(btn)btn.disabled=false}
 }
-
 async function setupInternalPassword(){
   const first=$('setupInternalPassword1')?.value||''; const second=$('setupInternalPassword2')?.value||''; const msg=$('setupInternalMsg'); const btn=$('setupInternalBtn');
   const say=(t,ok=false)=>{if(msg){msg.textContent=t;msg.style.color=ok?'#16803c':'#b42318'}};
-  if(first.length<4){say('رمز داخلی باید حداقل ۴ رقم باشد.');return}
+  if(first.length<6){say('رمز داخلی باید حداقل ۶ کاراکتر باشد.');return}
   if(first!==second){say('دو رمز یکسان نیستند.');return}
-  if(btn)btn.disabled=true; say('در حال ذخیره رمز داخلی...');
-  try{data._security=await createInternalPasswordRecord(first);localStorage.setItem(KEY,JSON.stringify(data));await cloudSaveNow();hideInternalSetup();showInternalLock();say('');toast('رمز داخلی تنظیم شد')}catch(e){say(cloudErrorText(e)||'ذخیره رمز ناموفق بود.')}finally{if(btn)btn.disabled=false}
+  if(btn)btn.disabled=true; say('در حال ذخیره امن رمز داخلی در فضای ابری...');
+  try{data._security=await createInternalPasswordRecord(first);localStorage.setItem(KEY,JSON.stringify(data));await cloudSaveNow();hideInternalSetup();showInternalLock();say('');toast('رمز داخلی تنظیم شد')}catch(e){say(cloudErrorText(e)||'ذخیره رمز داخلی ناموفق بود.')}finally{if(btn)btn.disabled=false}
 }
-
 function ensureInternalSetupUI(){
   if($('internalSetupOverlay'))return; const div=document.createElement('div');div.id='internalSetupOverlay';
   div.style.cssText='position:fixed;inset:0;z-index:100001;background:rgba(10,16,30,.84);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:20px;direction:rtl';
-  div.innerHTML=`<div style="width:min(400px,100%);background:var(--card,#fff);color:var(--font,#172033);border-radius:24px;padding:26px;box-shadow:0 25px 80px rgba(0,0,0,.3)">
-  <div style="font-size:36px;text-align:center;margin-bottom:6px">🔑</div>
-  <h2 style="margin:0 0 6px;text-align:center;font-size:20px">ساخت رمز داخلی برنامه</h2>
-  <p style="margin:0 0 16px;text-align:center;opacity:.7;font-size:13px">یک رمز عبور عددی برای قفل خود برنامه بسازید.</p>
-  <div style="display:grid;gap:12px">
-    <input id="setupInternalPassword1" type="password" placeholder="رمز داخلی جدید" style="padding:13px;border-radius:12px;border:1px solid #ccd3df;font-size:15px;text-align:center">
-    <input id="setupInternalPassword2" type="password" placeholder="تکرار رمز داخلی" style="padding:13px;border-radius:12px;border:1px solid #ccd3df;font-size:15px;text-align:center">
-    <button id="setupInternalBtn" class="btn" style="width:100%;padding:13px;border-radius:12px;font-weight:700">ذخیره رمز داخلی</button>
-    <div id="setupInternalMsg" style="font-size:13px;line-height:1.6;text-align:center"></div>
-  </div></div>`;
+  div.innerHTML=`<div style="width:min(430px,100%);background:var(--card,#fff);color:var(--font,#172033);border-radius:24px;padding:28px;box-shadow:0 25px 80px rgba(0,0,0,.3)">
+  <div style="font-size:42px;text-align:center;margin-bottom:8px">🔑</div><h2 style="margin:0 0 8px;text-align:center">ساخت رمز داخلی برنامه</h2><p style="margin:0 0 20px;text-align:center;opacity:.7;line-height:1.8">این رمز با رمز Supabase فرق دارد. یک رمز حداقل ۶ کاراکتری برای قفل خود برنامه بسازید.</p><div style="display:grid;gap:12px"><input id="setupInternalPassword1" type="password" autocomplete="new-password" placeholder="رمز داخلی جدید" style="padding:13px;border-radius:12px;border:1px solid #ccd3df;font-size:15px"><input id="setupInternalPassword2" type="password" autocomplete="new-password" placeholder="تکرار رمز داخلی" style="padding:13px;border-radius:12px;border:1px solid #ccd3df;font-size:15px"><button id="setupInternalBtn" style="padding:13px;border:0;border-radius:12px;cursor:pointer;font-weight:700">ذخیره رمز داخلی</button><div id="setupInternalMsg" style="font-size:13px;line-height:1.8;text-align:center"></div></div></div>`;
   document.body.appendChild(div);$('setupInternalBtn').addEventListener('click',setupInternalPassword);
 }
 function hideInternalSetup(){const x=$('internalSetupOverlay');if(x)x.style.display='none'}
@@ -736,7 +652,7 @@ function taskSummaryItem(x){
           <span class="priority-dot ${esc(pr)}" title="اولویت: ${esc(pr)}"></span>
           <b style="font-size:13px">${esc(x.title)}</b>
         </div>
-        <span style="font-size:12px;color:var(--muted);margin-right:16px;margin-top:12px;display:block;line-height:1.9">${fmtDate(x.date, x.dateTo)} ${x.time||''} · ${esc(x.type||'سایر')}</span>
+        <span style="font-size:12px;color:var(--muted);margin-right:16px;display:block">${fmtDate(x.date, x.dateTo)} ${x.time||''} · ${esc(x.type||'سایر')}</span>
       </div>
       <div style="display:flex;gap:6px">
         <button class="btn secondary small" onclick="openTask(${x.id})">ویرایش</button>
@@ -824,7 +740,7 @@ async function renderDashboard(){
  safeHTML('upcoming', upcomingTasks.length?upcomingTasks.map(x=>itemHTML(x)).join(''):'<div class="empty">کار نزدیک یا آینده‌ای ثبت نشده است.</div>');
  
  const counts={ready:data.docs.filter(x=>x.status==='ready').length,progress:data.docs.filter(x=>x.status==='progress').length,incomplete:data.docs.filter(x=>x.status==='incomplete').length};
- safeHTML('docSummary', Object.entries(counts).map(([k,v])=>`<div style="margin:16px 0 12px"><div style="display:flex;justify-content:space-between"><span>${k==='ready'?'🟢 آماده شده':k==='progress'?'🟡 در دست اقدام':'⚪ ناقص'}</span><b>${v}</b></div><div class="progress"><i style="width:${Math.min(100,v*20)}%"></i></div></div>`).join(''));
+ safeHTML('docSummary', Object.entries(counts).map(([k,v])=>`<div style="margin:12px 0"><div style="display:flex;justify-content:space-between"><span>${k==='ready'?'🟢 آماده شده':k==='progress'?'🟡 در دست اقدام':'⚪ ناقص'}</span><b>${v}</b></div><div class="progress"><i style="width:${Math.min(100,v*20)}%"></i></div></div>`).join(''));
  
  const lastExpenses = [...data.expenses].slice(-5).reverse();
  safeHTML('expenseSummary', lastExpenses.length ? lastExpenses.map(x => {
@@ -945,7 +861,7 @@ function docSummaryItem(x){
           <input type="checkbox" ${x.checked||x.status==='ready'?'checked':''} onchange="toggleDoc(${x.id},this.checked)" onclick="event.stopPropagation()">
           <b style="font-size:13px">${esc(x.name)}</b>
         </div>
-        <span style="font-size:12px;color:var(--muted);margin-right:24px;margin-top:12px;display:block;line-height:1.9">${esc(x.category||'سایر')} · ${fmtDate(x.date)} ${x.note?'· '+esc(x.note):''}</span>
+        <span style="font-size:12px;color:var(--muted);margin-right:24px;display:block">${esc(x.category||'سایر')} · ${fmtDate(x.date)} ${x.note?'· '+esc(x.note):''}</span>
       </div>
       <div style="display:flex;align-items:center;gap:6px">
         ${filePreviewHTML}
@@ -1050,7 +966,7 @@ function expenseSummaryItem(x){
     <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%">
       <div>
         <b style="display:block;font-size:13px">${esc(name)}</b>
-        <span style="font-size:12px;color:var(--muted);margin-top:12px;display:block;line-height:1.9">${cat} · ${amount.toLocaleString('fa-IR')} ${currency}${convertedStr}</span>
+        <span style="font-size:12px;color:var(--muted)">${cat} · ${amount.toLocaleString('fa-IR')} ${currency}${convertedStr}</span>
       </div>
       <div style="display:flex;gap:6px">
         <button class="btn secondary small" onclick="openExpense(${x.id})">ویرایش</button>
@@ -1109,7 +1025,7 @@ function renderCalendar(){
     
     const today=new Date();
     const cls=d===today.getDate()&&m===today.getMonth()&&y===today.getFullYear()?'today':'';
-    h+=`<div class="day ${cls}" onclick="openDayDetails('${iso}')"><strong>${d}</strong><div class="day-events">${allEvents.map(x=>`<span class="event ${x.type}">${esc(x.title)}</span>`).join('')}</div></div>`;
+    h+=`<div class="day ${cls}" onclick="openDayDetails('${iso}')"><strong>${d}</strong>${allEvents.map(x=>`<span class="event ${x.type}">${esc(x.title)}</span>`).join('')}</div>`;
   }
   safeHTML('calendarGrid', h);
 }
@@ -1133,7 +1049,7 @@ function openDayDetails(iso){
   openModal(html);
 }
 
-function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;}[c]))}
+function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function toggleDocsMenu(btn){const m=$('docsMenu'); if(m)m.classList.toggle('open');btn.classList.toggle('open')}
 function openDocsCategory(cat){window.docFilter=cat;if($('docCategoryFilter'))$('docCategoryFilter').value=cat==='all'?'all':cat;safeText('docCategoryTitle', cat==='all'?'همه':cat);showPage('docs');renderDocs();document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if($('docsMenu'))$('docsMenu').classList.add('open')}
 function filterDocs(cat){window.docFilter=cat;safeText('docCategoryTitle', cat==='all'?'همه':cat);renderDocs()}
@@ -1205,12 +1121,12 @@ function resetTheme(){
 }
 
 function loadTheme(){
-  const mode=localStorage.getItem('assistant_theme_mode')||'light',fc=localStorage.getItem('assistant_font_color']||'#172033',bg=localStorage.getItem('assistant_bg_color')||'#f4f7fb';
+  const mode=localStorage.getItem('assistant_theme_mode')||'light',fc=localStorage.getItem('assistant_font_color')||'#172033',bg=localStorage.getItem('assistant_bg_color')||'#f4f7fb';
   document.body.classList.toggle('dark',mode==='dark');
   document.documentElement.style.setProperty('--font',fc);
   document.documentElement.style.setProperty('--bg',bg);
   if($('themeMode'))$('themeMode').value=mode;
-  document.querySelectorAll('.theme-mode-card').forEach(b=>b.classList.toggle('active',b.dataset.mode==='light'));
+  document.querySelectorAll('.theme-mode-card').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));
   if($('fontColor'))$('fontColor').value=fc;
   if($('bgColor'))$('bgColor').value=bg;
   syncBgControls();
